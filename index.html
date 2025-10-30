@@ -211,6 +211,36 @@
     /* Reveal */
     .reveal{opacity:0;transform:translateY(14px);transition:.6s ease}
     .reveal.in{opacity:1;transform:none}
+
+    /* Caixa promocional neon/flutuante */
+    .promo-callout{
+      position:relative;
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      padding:18px 18px 16px;
+      box-shadow:0 0 0 1px rgba(0,195,255,.22) inset, 0 0 30px rgba(0,195,255,.25), 0 0 50px rgba(255,0,255,.18);
+      animation:floatY 6s ease-in-out infinite;
+      margin-left:auto;margin-right:auto; /* centraliza o bloco */
+      text-align:center; /* centraliza os textos */
+    }
+    .promo-ribbon{
+      position:absolute;top:-12px;left:16px;
+      background:linear-gradient(90deg,#42e1ff,#b86bff);
+      color:#061018;font-weight:800;border-radius:999px;padding:6px 12px;font-size:12px
+    }
+    .promo-title{font-weight:800;margin:4px 0 8px;font-size:clamp(18px,2.8vw,22px)}
+    .promo-sub{color:#a9ffde;font-weight:800;margin:6px 0 2px}
+    .promo-price{display:flex;align-items:flex-end;gap:8px;margin-top:6px}
+    .promo-price .big{font-size:34px;font-weight:800;color:#ffb8ff}
+    .promo-list{list-style:none;margin:10px 0 6px;padding:0;text-align:center}
+    .promo-list li{display:flex;gap:8px;align-items:flex-start;margin:6px 0;color:var(--muted)}
+    .promo-list li:before{content:"✓";color:#6dffbf;font-weight:900}
+
+    /* Faz a caixa ter o mesmo tamanho de uma coluna dos planos em telas grandes */
+    @media (min-width: 997px){
+      .promo-callout{ width: calc(50% - 9px); }
+    }
   </style>
 </head>
 <body>
@@ -384,6 +414,30 @@
   <!-- PLANOS -->
   <section id="planos" class="section" style="padding-top:70px">
     <div class="wrap">
+      <!-- CAIXA PROMOCIONAL NEON (logo acima do título) -->
+      <div class="promo-callout reveal" style="margin-bottom:16px">
+        <div class="promo-ribbon">OFERTA IMPERDÍVEL</div>
+        <div class="promo-title">Todas as ferramentas premium por um preço que cabe no bolso</div>
+        <ul class="promo-list">
+          <li>ChatGPT Plus — R$ 95/mês</li>
+          <li>CapCut Pro — R$ 65,90/mês</li>
+          <li>Veo 3 — R$ 249,99/mês</li>
+          <li>HeyGen — R$ 155/mês</li>
+          <li>Semrush — R$ 749/mês</li>
+        </ul>
+        <div class="muted">Valor total se fosse assinar tudo:</div>
+        <div class="promo-price"><span class="big">R$ 1.315,89</span><span class="per">/ mês</span> 🔥</div>
+        <div class="promo-sub">Mas você não vai pagar isso tudo.</div>
+        <div class="muted" style="margin:2px 0 8px">Você leva todas essas ferramentas:</div>
+        <ul class="promo-list" style="margin-top:0">
+          <li>100% prontas</li>
+          <li>Sem pagar mensalidade individual</li>
+          <li>Acesso VIP</li>
+          <li>Uso ilimitado</li>
+        </ul>
+        <div class="promo-price" style="margin-top:10px"><span class="big" style="color:#7ddaff">POR APENAS: R$ 47,00</span></div>
+      </div>
+
       <h2 class="h2 center reveal">Escolha seu <span class="brand-gradient">plano</span></h2>
       <p class="center muted reveal">Economia garantida com o plano trimestral</p>
 
