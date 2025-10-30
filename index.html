@@ -197,6 +197,8 @@
     ul.list{list-style:none;padding:0;margin:14px 0 16px}
     ul.list li{display:flex;gap:8px;align-items:flex-start;margin:8px 0;color:var(--muted)}
     ul.list li:before{content:"✓";color:#6dffbf;font-weight:900}
+    /* Lista branca e em negrito para o plano Mensal */
+    ul.list.white-strong li{color:#ffffff;font-weight:800}
 
     /* Suporte */
     .support{background:radial-gradient(800px 240px at 50% -20%, rgba(0,255,157,.18), transparent 60%);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
@@ -236,6 +238,23 @@
     .promo-list{list-style:none;margin:10px 0 6px;padding:0;text-align:center}
     .promo-list li{display:flex;gap:8px;align-items:flex-start;margin:6px 0;color:var(--muted)}
     .promo-list li:before{content:"✓";color:#6dffbf;font-weight:900}
+    .promo-item-name{color:#ffffff;font-weight:700}
+    .promo-item-price{color:#ff5858;font-weight:700}
+    .promo-text-red{color:#ff5858}
+    .promo-text-green{color:#45ffa7;font-weight:800}
+    .promo-text-green-dark{color:#0a8f5a;font-weight:800}
+    .promo-list.red li{color:#ff5858}
+    .promo-list.green li{color:#45ffa7}
+    .promo-list.white li{color:#ffffff;font-weight:800}
+    .promo-corner{
+      position:absolute;top:-12px;padding:6px 12px;border-radius:999px;font-weight:800;font-size:12px;
+      background:#ffffff; /* caixa branca */
+      color:#000000; /* texto preto */
+      border:1px solid rgba(255,255,255,.25); /* borda leve para contraste no fundo escuro */
+      box-shadow:none; /* sem neon */
+    }
+    .promo-corner.right{right:16px}
+    .promo-corner.left{left:16px}
 
     /* Faz a caixa ter o mesmo tamanho de uma coluna dos planos em telas grandes */
     @media (min-width: 997px){
@@ -259,8 +278,8 @@
           <div class="hero-float reveal">
             <img src="https://i.postimg.cc/QdvcTMVQ/IA-generativa-capa-1.jpg" alt="Destaque IA">
           </div>
-          <p class="lead reveal">
-            Tenha <b>+70 Ferramentas premium</b> de IA e Marketing Digital em um só acesso, pagando apenas <b>R$47/mês</b>.
+          <p class="lead reveal" style="color:#ffffff;font-weight:800">
+            Tenha +70 Ferramentas premium de IA e Marketing Digital em um só acesso, pagando apenas R$47/mês.
           </p>
           <div class="hero-actions reveal">
             <a href="#planos" class="btn btn-primary">Acessar Agora</a>
@@ -416,26 +435,25 @@
     <div class="wrap">
       <!-- CAIXA PROMOCIONAL NEON (logo acima do título) -->
       <div class="promo-callout reveal" style="margin-bottom:16px">
-        <div class="promo-ribbon">OFERTA IMPERDÍVEL</div>
+        <div class="promo-corner left"><span style="color:#000">Valor total se fosse assinar tudo:</span></div>
+        <div class="promo-corner right"><span class="promo-text-green-dark">Você leva todas essas ferramentas:</span></div>
         <div class="promo-title">Todas as ferramentas premium por um preço que cabe no bolso</div>
         <ul class="promo-list">
-          <li>ChatGPT Plus — R$ 95/mês</li>
-          <li>CapCut Pro — R$ 65,90/mês</li>
-          <li>Veo 3 — R$ 249,99/mês</li>
-          <li>HeyGen — R$ 155/mês</li>
-          <li>Semrush — R$ 749/mês</li>
+          <li><span class="promo-item-name">ChatGPT Plus</span> — <span class="promo-item-price">R$ 95/mês</span></li>
+          <li><span class="promo-item-name">CapCut Pro</span> — <span class="promo-item-price">R$ 65,90/mês</span></li>
+          <li><span class="promo-item-name">Veo 3</span> — <span class="promo-item-price">R$ 249,99/mês</span></li>
+          <li><span class="promo-item-name">HeyGen</span> — <span class="promo-item-price">R$ 155/mês</span></li>
+          <li><span class="promo-item-name">Semrush</span> — <span class="promo-item-price">R$ 749/mês</span></li>
         </ul>
-        <div class="muted">Valor total se fosse assinar tudo:</div>
-        <div class="promo-price"><span class="big">R$ 1.315,89</span><span class="per">/ mês</span> 🔥</div>
-        <div class="promo-sub">Mas você não vai pagar isso tudo.</div>
-        <div class="muted" style="margin:2px 0 8px">Você leva todas essas ferramentas:</div>
-        <ul class="promo-list" style="margin-top:0">
+        <div class="promo-price"><span class="big" style="color:#ff5858">R$ 1.315,89</span><span class="per promo-text-red">/ mês</span> 🔥</div>
+        <div class="promo-sub promo-text-green">Mas você não vai pagar isso tudo.</div>
+        <ul class="promo-list white" style="margin-top:0">
           <li>100% prontas</li>
           <li>Sem pagar mensalidade individual</li>
           <li>Acesso VIP</li>
           <li>Uso ilimitado</li>
         </ul>
-        <div class="promo-price" style="margin-top:10px"><span class="big" style="color:#7ddaff">POR APENAS: R$ 47,00</span></div>
+        <div class="promo-price" style="margin-top:10px"><span class="big" style="color:#45ffa7">POR APENAS: R$ 47,00</span></div>
       </div>
 
       <h2 class="h2 center reveal">Escolha seu <span class="brand-gradient">plano</span></h2>
@@ -445,34 +463,34 @@
         <div class="plan reveal">
           <h3>Mensal</h3>
           <div class="price"><span class="big">R$47</span><span class="per">/mês</span></div>
-          <ul class="list">
+          <ul class="list white-strong">
             <li>Acesso a +70 ferramentas premium de IA</li>
             <li>Suporte prioritário via WhatsApp</li>
             <li>Atualizações automáticas</li>
             <li>Acesso imediato após pagamento</li>
             <li>Cancele quando quiser</li>
           </ul>
-          <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Começar Agora</a>
+          <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Assinar Agora</a>
         </div>
 
         <div class="plan pop reveal">
           <div class="ribbon">★ MAIS POPULAR</div>
           <h3>Trimestral</h3>
           <div class="price"><span class="big" style="color:#b87dff">R$117</span><span class="per" style="color:#b87dff"> </span></div>
-          <div class="muted" style="margin-top:-6px;margin-bottom:8px">Apenas R$39/mês • Economize R$24</div>
-          <ul class="list">
+          <div class="muted" style="margin-top:-6px;margin-bottom:8px;color:#1bbf7a;font-weight:800">Apenas R$39/mês • Economize R$24</div>
+          <ul class="list white-strong">
             <li>ChatGPT, Midjourney, Leonardo AI e mais</li>
             <li>Suporte prioritário via WhatsApp</li>
             <li>Atualizações automáticas</li>
             <li>Acesso imediato após pagamento</li>
-            <li>Cancele quando quiser</li>
-            <li><b style="color:#a9ffde">3 meses de acesso garantido</b></li>
+            <li><span style="color:#ffffff;font-weight:800">Cancele quando quiser</span></li>
+            <li><span style="color:#21d19f;font-weight:800">3 meses de acesso garantido</span></li>
           </ul>
           <a class="btn" style="background:linear-gradient(90deg,#ff67ff,#b86bff);color:#210039;border:0;font-weight:800" href="#" target="_blank" rel="noopener">Começar Agora</a>
         </div>
       </div>
 
-      <p class="center muted" style="margin-top:16px">Pagamento 100% seguro · Acesso imediato · Cancele quando quiser</p>
+      <p class="center muted" style="margin-top:16px;color:#ffffff;font-weight:800;font-size:16px">Pagamento 100% seguro · Acesso imediato · Cancele quando quiser</p>
     </div>
   </section>
 
