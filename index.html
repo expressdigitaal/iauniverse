@@ -25,7 +25,6 @@
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:radial-gradient(1000px 420px at 70% -10%, rgba(0,195,255,.12), transparent 60%), radial-gradient(1200px 500px at 0% -20%, rgba(138,43,226,.12), transparent 60%), var(--bg);color:var(--text);font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
-    /* Oculta quaisquer barras/indicadores de rolagem sobrepostos */
     *{scrollbar-width:none}
     *::-webkit-scrollbar{display:none}
     img,canvas{max-width:100%;display:block}
@@ -65,13 +64,9 @@
     }
     .hero-note{display:flex;gap:10px;align-items:center;margin:12px 0;color:#8cf5c4;font-size:14px}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-
-    /* Centralização opcional do bloco de texto do herói */
     .center-hero{max-width:820px;margin:0 auto;text-align:center;justify-self:center}
     .center-hero .hero-actions{justify-content:center}
     .center-hero .hero-note{justify-content:center;margin-bottom:16px}
-
-    /* Carrossel de logos em esferas */
     .logo-ticker{overflow:hidden;margin-top:18px}
     .logo-track{display:flex;gap:14px;animation:ticker 32s linear infinite}
     .logo-badge{
@@ -88,17 +83,12 @@
     }
     .logo-badge img{background:#000}
     @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-    /* Imagem flutuante com neon */
     .hero-float{margin:14px auto 6px;width:clamp(260px,60vw,780px);border-radius:16px;overflow:hidden;
       border:1px solid var(--stroke);background:var(--card);
       box-shadow:0 0 0 1px rgba(0,195,255,.22) inset, 0 0 28px rgba(0,195,255,.18), 0 0 46px rgba(0,255,180,.14);
       animation:floatY 6s ease-in-out infinite}
     .hero-float img{display:block;width:100%;height:auto}
     @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-    
-
-    /* Moldura inclinada do robô (mantida) */
     .robot-frame{
       background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border:1px solid var(--stroke);
@@ -107,9 +97,7 @@
       transform:rotate(-3.5deg);
       max-width:560px;margin:0 auto
     }
-    /* Esconde o quadro do robô abaixo do carrossel neste layout */
     .hero .robot-frame{display:none}
-    /* Cena 3D dentro da moldura */
     .robot-picture{
       width:100%;aspect-ratio:16/11;border-radius:10px;
       background:radial-gradient(600px 300px at 60% -20%, rgba(0,195,255,.22), transparent 60%), #0b1218;
@@ -117,8 +105,6 @@
       box-shadow:0 16px 60px rgba(0,0,0,.25)
     }
     #robot3d-canvas{position:absolute;inset:0;width:100%;height:100%}
-
-    /* “Grandes players” */
     .players{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     @media (max-width:996px){.players{grid-template-columns:repeat(2,1fr)}}
     .player{
@@ -137,13 +123,11 @@
     .avatar-ph{width:100%;height:100%;display:grid;place-items:center;background:rgba(255,255,255,.06);color:var(--muted);font-size:12px}
     .player .name{font-weight:700}
     .player .role{color:var(--muted);font-size:14px;margin-top:2px}
-
-    /* Ferramentas */
     .tools{
       display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;
       scroll-snap-type:x mandatory;
-      -ms-overflow-style:none; /* IE/Edge antigo */
-      scrollbar-width:none; /* Firefox */
+      -ms-overflow-style:none;
+      scrollbar-width:none;
     }
     .tools::-webkit-scrollbar{display:none}
     .tool{
@@ -166,8 +150,6 @@
     }
     .tool b{display:block;font-size:14px}
     .tools-note{color:#45ffa7;font-weight:800;margin-top:10px;text-align:center}
-
-    /* Como funciona */
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     @media (max-width:996px){.steps{grid-template-columns:1fr}}
     .step{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px 16px;transition:.25s ease}
@@ -182,8 +164,6 @@
       width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
       background:linear-gradient(90deg, var(--accent), var(--primary));font-weight:800;color:#061018;margin-bottom:10px
     }
-
-    /* Planos */
     .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     @media (max-width:996px){.plans{grid-template-columns:1fr}}
     .plan{position:relative;background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:22px;box-shadow:var(--glow)}
@@ -198,24 +178,16 @@
     ul.list{list-style:none;padding:0;margin:14px 0 16px}
     ul.list li{display:flex;gap:8px;align-items:flex-start;margin:8px 0;color:var(--muted)}
     ul.list li:before{content:"✓";color:#6dffbf;font-weight:900}
-    /* Lista branca e em negrito para o plano Mensal */
     ul.list.white-strong li{color:#ffffff;font-weight:800}
-
-    /* Suporte */
     .support{background:radial-gradient(800px 240px at 50% -20%, rgba(0,255,157,.18), transparent 60%);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
     .whats{
       display:inline-flex;gap:10px;align-items:center;background:linear-gradient(90deg, var(--success), #b6ffd9);
       color:#063; padding:14px 18px;border-radius:14px;font-weight:800
     }
-
     footer{border-top:1px solid var(--stroke);padding:30px 0;color:var(--muted);font-size:14px}
     .brand-gradient{background:linear-gradient(90deg, #00ffb4, #00c3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-    /* Reveal */
     .reveal{opacity:0;transform:translateY(14px);transition:.6s ease}
     .reveal.in{opacity:1;transform:none}
-
-    /* Caixa promocional neon/flutuante */
     .promo-callout{
       position:relative;
       background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
@@ -224,8 +196,8 @@
       padding:18px 18px 16px;
       box-shadow:0 0 0 1px rgba(0,195,255,.22) inset, 0 0 30px rgba(0,195,255,.25), 0 0 50px rgba(255,0,255,.18);
       animation:floatY 6s ease-in-out infinite;
-      margin-left:auto;margin-right:auto; /* centraliza o bloco */
-      text-align:center; /* centraliza os textos */
+      margin-left:auto;margin-right:auto;
+      text-align:center;
     }
     .promo-ribbon{
       position:absolute;top:-12px;left:16px;
@@ -244,25 +216,19 @@
     .promo-text-red{color:#ff5858}
     .promo-text-green{color:#45ffa7;font-weight:800}
     .promo-text-green-dark{color:#0a8f5a;font-weight:800}
-    .promo-list.red li{color:#ff5858}
-    .promo-list.green li{color:#45ffa7}
     .promo-list.white li{color:#ffffff;font-weight:800}
     .promo-corner{
       position:absolute;top:-12px;padding:6px 12px;border-radius:999px;font-weight:800;font-size:12px;
-      background:#ffffff; /* caixa branca */
-      color:#000000; /* texto preto */
-      border:1px solid rgba(255,255,255,.25); /* borda leve para contraste no fundo escuro */
-      box-shadow:none; /* sem neon */
+      background:#ffffff;
+      color:#000000;
+      border:1px solid rgba(255,255,255,.25);
+      box-shadow:none;
     }
     .promo-corner.right{right:16px}
     .promo-corner.left{left:16px}
-
-    /* Faz a caixa ter o mesmo tamanho de uma coluna dos planos em telas grandes */
     @media (min-width: 997px){
       .promo-callout{ width: calc(50% - 9px); }
     }
-
-    /* Depoimentos */
     .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
     @media (max-width:996px){.testimonials{grid-template-columns:1fr}}
     .tcard{
@@ -274,24 +240,20 @@
     .thead{display:flex;align-items:center;gap:12px}
     .tavatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.25);flex-shrink:0}
     .tname{font-weight:800}
-    .trole{color:var(--muted);font-size:14px}
     .tstars{color:#ffd66b;font-size:16px;letter-spacing:2px}
     .tquote{color:var(--muted);line-height:1.5}
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="wrap section" style="padding-top:40px;padding-bottom:56px">
       <div class="hero-inner">
-        <!-- esquerda -->
         <div class="center-hero">
           <h1 class="h1 reveal">
             Chega de gastar caro<br>
             em <span class="headline-ink">ferramentas<br>de IA</span>
           </h1>
-          <!-- Imagem flutuante abaixo do título (substitua o src pela sua URL/GitHub) -->
           <div class="hero-float reveal">
             <img src="https://i.postimg.cc/QdvcTMVQ/IA-generativa-capa-1.jpg" alt="Destaque IA">
           </div>
@@ -304,10 +266,8 @@
           </div>
           <div class="hero-note reveal">✅ Acesso imediato após a confirmação do pagamento</div>
 
-          <!-- Carrossel de logos em esferas (loop infinito) -->
           <div class="logo-ticker reveal" aria-hidden="true">
             <div class="logo-track">
-              <!-- cole a URL completa do logo abaixo quando tiver pronto -->
               <div class="logo-badge" data-logo="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png">Veo 3</div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png">ChatGPT</div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png">Sora GPT</div>
@@ -316,7 +276,6 @@
               <div class="logo-badge" data-logo="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png"></div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png">Freepik</div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png">CapCut PRO</div>
-              <!-- duplicado para loop contínuo -->
               <div class="logo-badge" data-logo="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png">Veo 3</div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png">ChatGPT</div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png">Sora GPT</div>
@@ -328,10 +287,8 @@
             </div>
           </div>
 
-          
         </div>
 
-        <!-- direita: moldura + CANVAS 3D -->
         <div class="robot-frame reveal">
           <div class="robot-picture">
             <canvas id="robot3d-canvas"></canvas>
@@ -342,7 +299,6 @@
     </div>
   </header>
 
-  <!-- GRANDES PLAYERS -->
   <section class="section">
     <div class="wrap">
       <h2 class="h2 center reveal">Tudo que os <span class="brand-gradient">grandes players</span> usam</h2>
@@ -350,32 +306,43 @@
 
       <div class="players" style="margin-top:18px">
         <div class="player reveal">
-          <div class="avatar"><div class="https://i.postimg.cc/fyFSPWd8/images-1.jpg">Foto</div></div>
+          <div class="avatar"><img src="https://i.postimg.cc/fyFSPWd8/images-1.jpg" alt="Carlos"></div>
           <div><div class="name">Carlos Silva</div><div class="role">Designer Gráfico</div></div>
         </div>
         <div class="player reveal">
-          <div class="avatar"><div class="https://i.postimg.cc/gjr64LxQ/images-2.jpg">Foto</div></div>
+          <div class="avatar"><img src="https://i.postimg.cc/gjr64LxQ/images-2.jpg" alt="Ana"></div>
           <div><div class="name">Ana Costa</div><div class="role">Produtora de Conteúdo</div></div>
         </div>
         <div class="player reveal">
-          <div class="avatar"><div class="https://i.postimg.cc/K874PD0s/1713344518140.png">Foto</div></div>
+          <div class="avatar"><img src="https://i.postimg.cc/K874PD0s/1713344518140.png" alt="Pedro"></div>
           <div><div class="name">Pedro Santos</div><div class="role">Social Media</div></div>
         </div>
         <div class="player reveal">
-          <div class="avatar"><div class="https://i.postimg.cc/mgWt15yK/En-JH360Cy-FIuuh0T1Ov-Ym4Gapo.png">Foto</div></div>
+          <div class="avatar"><img src="https://i.postimg.cc/mgWt15yK/En-JH360Cy-FIuuh0T1Ov-Ym4Gapo.png" alt="Julia"></div>
           <div><div class="name">Julia Oliveira</div><div class="role">Empreendedora Digital</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FERRAMENTAS -->
   <section class="section">
     <div class="wrap">
       <h2 class="h2 center reveal">Transforme suas ideias em <span class="brand-gradient">vídeos, imagens</span> e <span class="brand-gradient">textos</span> prontos em segundos!</h2>
 
-      <!-- Tópico 1: Vídeos em segundos -->
       <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:24px">1 — <span class="brand-gradient">Vídeos prontos</span> em segundos</h3>
+
+      <!-- VSL 9:16 -->
+      <div class="reveal" style="margin-top:22px; display:flex; justify-content:center;">
+        <video 
+          id="vsl-video"
+          src="https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPO/main/video1.mp4"
+          style="width:clamp(240px, 34vw, 400px); border-radius:14px; border:1px solid rgba(255,255,255,.18); box-shadow:0 0 0 1px rgba(0,195,255,.25) inset, 0 0 28px rgba(0,195,255,.18);"
+          playsinline
+          controls
+          preload="metadata"
+        ></video>
+      </div>
+
       <div class="tools" style="margin-top:12px">
         <div class="tool reveal"><div class="icon">🎬</div><b>Invideo</b><div class="muted">Vídeos rápidos a partir de modelos e IA.</div></div>
         <div class="tool reveal"><div class="icon">🎥</div><b>Veo 3</b><div class="muted">Geração de vídeo avançada por prompt.</div></div>
@@ -384,7 +351,6 @@
         <div class="tool reveal"><div class="icon">🎞️</div><b>Sora GPT</b><div class="muted">Criação de cenas cinematográficas por IA.</div></div>
       </div>
 
-      <!-- Tópico 2: Criação com IA de última geração -->
       <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:34px">2 — Crie <span class="brand-gradient">imagens, textos, vídeos e vozes</span></h3>
       <div class="tools" style="margin-top:12px">
         <div class="tool reveal"><div class="icon">💬</div><b>ChatGPT</b><div class="muted">Escrita, ideias e automações com IA.</div></div>
@@ -395,7 +361,6 @@
         <div class="tool reveal"><div class="icon">🗣️</div><b>ElevenLabs</b><div class="muted">Voz humana realista em segundos.</div></div>
       </div>
 
-      <!-- Tópico 3: Inteligência para anúncios -->
       <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:34px">3 — Espione <span class="brand-gradient">anúncios que faturam</span> milhões</h3>
       <div class="tools" style="margin-top:12px">
         <div class="tool reveal"><div class="icon">🔍</div><b>AdSpy</b><div class="muted">Descubra criativos vencedores.</div></div>
@@ -406,7 +371,6 @@
         <div class="tool reveal"><div class="icon">🛡️</div><b>Guardiller</b><div class="muted">Análises e proteção de contas.</div></div>
       </div>
 
-      <!-- Tópico 4: Design ilimitado -->
       <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:34px">4 — <span class="brand-gradient">Design profissional</span> ilimitado</h3>
       <div class="tools" style="margin-top:12px">
         <div class="tool reveal"><div class="icon">🖌️</div><b>Canva Pro</b><div class="muted">Modelos prontos e editor completo.</div></div>
@@ -421,12 +385,10 @@
     </div>
   </section>
 
-  <!-- COMO FUNCIONA -->
   <section id="como-funciona" class="section">
     <div class="wrap">
       <h2 class="h2 center reveal">Como <span class="brand-gradient">funciona?</span></h2>
       <p class="center muted reveal">Simples, rápido e seguro</p>
-
       <div class="steps" style="margin-top:18px">
         <div class="step reveal">
           <div class="badge">1</div>
@@ -447,10 +409,8 @@
     </div>
   </section>
 
-  <!-- PLANOS -->
   <section id="planos" class="section" style="padding-top:70px">
     <div class="wrap">
-      <!-- CAIXA PROMOCIONAL NEON (logo acima do título) -->
       <div class="promo-callout reveal" style="margin-bottom:16px">
         <div class="promo-corner left"><span style="color:#000">Valor total se fosse assinar tudo:</span></div>
         <div class="promo-corner right"><span class="promo-text-green-dark">Você leva todas essas ferramentas:</span></div>
@@ -509,7 +469,6 @@
 
       <p class="center muted" style="margin-top:16px;color:#ffffff;font-weight:800;font-size:16px">Pagamento 100% seguro · Acesso imediato · Cancele quando quiser</p>
 
-      <!-- Depoimentos -->
       <div class="testimonials">
         <div class="tcard reveal">
           <div class="thead">
@@ -547,7 +506,6 @@
     </div>
   </section>
 
-  <!-- SUPORTE -->
   <section class="support section">
     <div class="wrap center">
       <h2 class="h2 reveal">Ficou alguma <span class="brand-gradient">dúvida?</span></h2>
@@ -567,12 +525,10 @@
     </div>
   </footer>
 
-  <!-- Three.js + GLTFLoader -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.152/examples/js/loaders/GLTFLoader.js"></script>
 
   <script>
-    // Scroll suave para âncoras
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
         const id=a.getAttribute('href');
@@ -582,55 +538,36 @@
       });
     });
 
-    // Reveal on scroll
     const io=new IntersectionObserver((entries)=>{
       entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } })
     },{threshold:.12});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    // Injeção de logos do carrossel a partir de arquivos PNG hospedados
-    // Ajuste a URL base abaixo para o seu repositório do GitHub (caminho da pasta onde os PNGs estão)
-    // Deixe LOGO_BASE vazio se for colar URLs completos em cada item
     const LOGO_BASE = '';
     document.querySelectorAll('.logo-badge[data-logo]').forEach(el=>{
       let file = (el.getAttribute('data-logo')||'').trim();
-      if(!file) return; // sem URL ainda: mantém o texto
+      if(!file) return;
       const img = new Image();
       img.loading = 'lazy';
       img.alt = el.textContent.trim() || file.replace(/\.[^.]+$/,'');
       const isAbs = /^https?:\/\//i.test(file);
       if(!isAbs && LOGO_BASE){ file = LOGO_BASE + file; }
-      // normaliza protocolo
       if(/^\/\//.test(file)){ file = 'https:' + file; }
       img.crossOrigin = 'anonymous';
       img.src = file;
       img.onerror = ()=>{
-        console.warn('Falha ao carregar logo:', file);
         if(el && !el.textContent){ el.textContent = img.alt; }
       };
-      if(!img.src){ return; }
       el.textContent = '';
       el.style.padding = '0';
       el.appendChild(img);
     });
 
-    // ==========================
-    //  THREE.JS - ROBÔ 3D REAL
-    // ==========================
     const wrap = document.querySelector('.robot-picture');
     const canvas = document.getElementById('robot3d-canvas');
-
-    // 🔗 TROQUE AQUI PELO SEU GLB
     let MODEL_URL = "https://threejs.org/examples/models/gltf/RobotExpressive/RobotExpressive.glb";
 
-
-
-    // Exemplo para teste (comente a linha acima e descomente abaixo se quiser testar):
-    // MODEL_URL = "https://threejs.org/examples/models/gltf/RobotExpressive/RobotExpressive.glb";
-
-    // Cena básica
     const scene = new THREE.Scene();
-    // Fundo transparente para casar com o card
     scene.background = null;
 
     const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
@@ -640,30 +577,16 @@
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Luzes
     const hemi = new THREE.HemisphereLight(0xcff2ff, 0x0b1016, 0.9);
     scene.add(hemi);
     const dir = new THREE.DirectionalLight(0xffffff, 1.15);
     dir.position.set(3, 5, 4);
     scene.add(dir);
 
-    // Suave "chão" de sombra falsa
-    const groundGeo = new THREE.CircleGeometry(1.6, 48);
-    const groundMat = new THREE.ShadowMaterial({ opacity:0.18 });
-    const ground = new THREE.Mesh(groundGeo, groundMat);
-    ground.rotation.x = -Math.PI/2;
-    ground.position.y = -0.95;
-    ground.receiveShadow = true;
-    // renderer.shadowMap.enabled = true; // (opcional: habilite se o modelo tiver sombras baked)
-    // scene.add(ground); // (desativado por padrão para manter o clean do print)
-
-    // Loader
     const loader = new THREE.GLTFLoader();
-
     let robot, mixer, headBone, torso;
     loader.load(MODEL_URL, (gltf)=>{
       robot = gltf.scene;
-      // Normaliza tamanho/posição
       robot.traverse(n=>{
         if(n.isMesh){
           n.castShadow = false;
@@ -671,16 +594,13 @@
           if(n.material) n.material.needsUpdate = true;
         }
       });
-
-      // Centraliza e escala para caber no card
       const box = new THREE.Box3().setFromObject(robot);
       const size = new THREE.Vector3(); box.getSize(size);
       const center = new THREE.Vector3(); box.getCenter(center);
-      const scale = 1.7 / Math.max(size.y, size.x); // cabe at&eacute; 1.7 de altura
+      const scale = 1.7 / Math.max(size.y, size.x);
       robot.scale.setScalar(scale);
       robot.position.set(-center.x*scale, -center.y*scale - 0.5, -center.z*scale);
 
-      // Tenta achar ossos de cabeça/torso
       robot.traverse(n=>{
         const name = (n.name||"").toLowerCase();
         if(!headBone && (name.includes("head") || name.includes("cabeca") || name.includes("neck") || name==="head")){
@@ -694,22 +614,17 @@
 
       scene.add(robot);
 
-      // Animações do arquivo (se existirem)
       if(gltf.animations && gltf.animations.length){
         mixer = new THREE.AnimationMixer(robot);
         gltf.animations.forEach(clip=>{
-          // toca só a primeira loopando suave
           if(clip && clip.duration>0) {
             const act = mixer.clipAction(clip);
             act.play();
           }
         });
       }
-    }, undefined, (err)=>{
-      console.warn("Falha ao carregar GLB:", err);
     });
 
-    // Resize para o card
     function resize(){
       const w = wrap.clientWidth;
       const h = wrap.clientHeight;
@@ -720,14 +635,11 @@
     window.addEventListener('resize', resize, {passive:true});
     resize();
 
-    // Interação: mouse/toque -> gira cabeça/torso
     let targetDX = 0, targetDY = 0;
-
     function onMove(clientX, clientY){
       const rect = canvas.getBoundingClientRect();
       const cx = rect.left + rect.width/2;
       const cy = rect.top + rect.height/2;
-      // -1..1
       targetDX = (clientX - cx) / (rect.width/2);
       targetDY = (clientY - cy) / (rect.height/2);
       targetDX = Math.max(-1, Math.min(1, targetDX));
@@ -737,30 +649,22 @@
     window.addEventListener('touchmove', (e)=>{ const t=e.touches[0]; if(t) onMove(t.clientX, t.clientY); }, {passive:true});
     window.addEventListener('mouseleave', ()=>{ targetDX = 0; targetDY = 0; });
 
-    // Loop
     const clock = new THREE.Clock();
     function animate(){
       requestAnimationFrame(animate);
       const dt = clock.getDelta();
-
       if(mixer) mixer.update(dt);
-
-      // Aplica leve rotação no corpo e maior na cabeça
       if(robot){
         const bodyYaw = THREE.MathUtils.lerp(robot.rotation.y, targetDX * 0.25, 0.12);
         robot.rotation.y = bodyYaw;
-
         if(headBone){
-          // inclina cabeça (pitch) e gira (yaw)
           headBone.rotation.y = THREE.MathUtils.lerp(headBone.rotation.y, targetDX * 0.6, 0.18);
           headBone.rotation.x = THREE.MathUtils.lerp(headBone.rotation.x, -targetDY * 0.35, 0.18);
-        } else {
-          // fallback: inclina leve o torso se não tiver cabeça separada
+        } else if(torso){
           torso.rotation.y = THREE.MathUtils.lerp(torso.rotation.y, targetDX * 0.35, 0.12);
           torso.rotation.x = THREE.MathUtils.lerp(torso.rotation.x, -targetDY * 0.15, 0.12);
         }
       }
-
       renderer.render(scene, camera);
     }
     animate();
