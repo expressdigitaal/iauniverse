@@ -88,7 +88,9 @@
       box-shadow:0 0 0 1px rgba(0,195,255,.22) inset, 0 0 28px rgba(0,195,255,.18), 0 0 46px rgba(0,255,180,.14);
       animation:floatY 6s ease-in-out infinite}
     .hero-float img{display:block;width:100%;height:auto}
+
     @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
     .robot-frame{
       background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border:1px solid var(--stroke);
@@ -105,12 +107,26 @@
       box-shadow:0 16px 60px rgba(0,0,0,.25)
     }
     #robot3d-canvas{position:absolute;inset:0;width:100%;height:100%}
-    .players{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+    /* CORREÇÃO DAS CAIXAS DOS PLAYERS */
+    .players{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
     @media (max-width:996px){.players{grid-template-columns:repeat(2,1fr)}}
+
     .player{
-      background:var(--card);border:1px solid var(--stroke);border-radius:16px;
-      padding:18px 16px;display:flex;align-items:center;gap:14px;min-height:110px;
-      transition:.25s ease;position:relative
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      padding:18px 16px;
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      min-height:140px;
+      transition:.25s ease;
+      position:relative;
     }
     .player:hover{
       transform:translateY(-2px);
@@ -119,10 +135,24 @@
                  0 0 22px rgba(0,195,255,.28),
                  0 0 36px rgba(0,255,180,.24)
     }
-    .avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.25)}
-    .avatar-ph{width:100%;height:100%;display:grid;place-items:center;background:rgba(255,255,255,.06);color:var(--muted);font-size:12px}
+    .avatar{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      overflow:hidden;
+      flex-shrink:0;
+      border:1px solid rgba(255,255,255,.25)
+    }
+    .txt{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      font-size:14px;
+      line-height:1.35;
+    }
     .player .name{font-weight:700}
     .player .role{color:var(--muted);font-size:14px;margin-top:2px}
+
     .tools{
       display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;
       scroll-snap-type:x mandatory;
@@ -150,6 +180,7 @@
     }
     .tool b{display:block;font-size:14px}
     .tools-note{color:#45ffa7;font-weight:800;margin-top:10px;text-align:center}
+
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     @media (max-width:996px){.steps{grid-template-columns:1fr}}
     .step{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px 16px;transition:.25s ease}
@@ -164,6 +195,7 @@
       width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
       background:linear-gradient(90deg, var(--accent), var(--primary));font-weight:800;color:#061018;margin-bottom:10px
     }
+
     .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     @media (max-width:996px){.plans{grid-template-columns:1fr}}
     .plan{position:relative;background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:22px;box-shadow:var(--glow)}
@@ -265,6 +297,7 @@
               <div class="logo-badge" data-logo="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png"></div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png">Freepik</div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png">CapCut PRO</div>
+
               <div class="logo-badge" data-logo="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png">Veo 3</div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png">ChatGPT</div>
               <div class="logo-badge" data-logo="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png">Sora GPT</div>
@@ -295,19 +328,34 @@
       <div class="players" style="margin-top:18px">
         <div class="player reveal">
           <div class="avatar"><img src="https://i.postimg.cc/fyFSPWd8/images-1.jpg" alt="Foto"></div>
-          <div><div class="name">João Marcus</div><div class="role">João Marcus. Empresário em múltiplos segmentos de mercado</div></div>
+          <div class="txt">
+            <div class="name">João Marcus</div>
+            <div class="role">João Marcus. Empresário em múltiplos segmentos de mercado</div>
+          </div>
         </div>
+
         <div class="player reveal">
           <div class="avatar"><img src="https://i.postimg.cc/gjr64LxQ/images-2.jpg" alt="Foto"></div>
-          <div><div class="name">Ruyter Poubel</div><div class="role">co-fundador e CMO da Kirvano desde 2021, e influenciador digital com mais de 40 milhões de seguidores nas plataformas digitais.</div></div>
+          <div class="txt">
+            <div class="name">Ruyter Poubel</div>
+            <div class="role">co-fundador e CMO da Kirvano desde 2021, e influenciador digital com mais de 40 milhões de seguidores nas plataformas digitais.</div>
+          </div>
         </div>
+
         <div class="player reveal">
           <div class="avatar"><img src="https://i.postimg.cc/K874PD0s/1713344518140.png" alt="Foto"></div>
-          <div><div class="name">Thiago Finch </div><div class="role"> O império de Thiago Finch e o futuro do Marketing Digital. Thiago Finch é, sem dúvida, uma dos maiores nomes do marketing digital brasileiro.</div></div>
+          <div class="txt">
+            <div class="name">Thiago Finch </div>
+            <div class="role">O império de Thiago Finch e o futuro do Marketing Digital. Thiago Finch é, sem dúvida, uma dos maiores nomes do marketing digital brasileiro.</div>
+          </div>
         </div>
+
         <div class="player reveal">
           <div class="avatar"><img src="https://i.postimg.cc/mgWt15yK/En-JH360Cy-FIuuh0T1Ov-Ym4Gapo.png" alt="Foto"></div>
-          <div><div class="name">Caio Martins</div><div class="role">Empresário com 6 anos de experiência na criação de conteúdos no YouTube, especializado em vendas online e estratégias de marketing digital.</div></div>
+          <div class="txt">
+            <div class="name">Caio Martins</div>
+            <div class="role">Empresário com 6 anos de experiência na criação de conteúdos no YouTube, especializado em vendas online e estratégias de marketing digital.</div>
+          </div>
         </div>
       </div>
 
@@ -498,10 +546,8 @@
       img.crossOrigin = 'anonymous';
       img.src = file;
       img.onerror = ()=>{
-        console.warn('Falha ao carregar logo:', file);
         if(el && !el.textContent){ el.textContent = img.alt; }
       };
-      if(!img.src){ return; }
       el.textContent = '';
       el.style.padding = '0';
       el.appendChild(img);
@@ -569,8 +615,6 @@
           }
         });
       }
-    }, undefined, (err)=>{
-      console.warn("Falha ao carregar GLB:", err);
     });
 
     function resize(){
