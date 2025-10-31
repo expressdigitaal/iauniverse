@@ -87,7 +87,7 @@
       border:1px solid var(--stroke);background:var(--card);
       box-shadow:0 0 0 1px rgba(0,195,255,.22) inset, 0 0 28px rgba(0,195,255,.18), 0 0 46px rgba(0,255,180,.14);
       animation:floatY 6s ease-in-out infinite}
-    .hero-float img{display:block;width:100%;height:auto}
+    .hero-float img{display:block;width:100%;height:auto;object-fit:cover}
     @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
     .robot-frame{
       background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
@@ -244,17 +244,19 @@
     @media (max-width:768px){
       .wrap{padding:16px}
       .section{padding:32px 0}
-      header.hero .wrap.section{padding-top:24px;padding-bottom:32px}
-      .hero-inner{min-height:unset;gap:20px;padding:0}
-      .center-hero{width:100%;max-width:100%;padding:0}
-      .h1{font-size:clamp(26px,8vw,42px);margin:4px 0 12px;line-height:1.15;word-break:break-word}
-      .h2{font-size:clamp(20px,5vw,32px);margin:0 0 8px}
-      .lead{font-size:clamp(14px,3.5vw,16px);margin:0 auto;max-width:100%;padding:0 4px;line-height:1.4}
-      .hero-float{margin:16px auto 12px;width:100%;max-width:100%;display:block}
-      .hero-actions{flex-direction:column;gap:10px;width:100%;max-width:100%}
-      .hero-actions .btn{width:100%;justify-content:center;max-width:100%;box-sizing:border-box}
-      .hero-note{font-size:13px;margin:12px 0;flex-wrap:wrap;justify-content:center;text-align:center;line-height:1.4;padding:0 8px}
-      .logo-ticker{margin-top:16px;width:100%;overflow:hidden;max-width:100%}
+      header.hero .wrap.section{padding-top:20px;padding-bottom:28px}
+      .hero-inner{min-height:unset;gap:0;padding:0;display:flex;flex-direction:column;align-items:center}
+      .center-hero{width:100%;max-width:100%;padding:0;display:flex;flex-direction:column;align-items:center;gap:16px}
+      .h1{font-size:clamp(24px,7vw,36px);margin:0 0 16px;line-height:1.25;word-break:break-word;text-align:center;width:100%;display:block}
+      .h1 br{display:block;line-height:1.3}
+      .headline-ink{display:inline-block}
+      .hero-float{order:2;margin:0 auto 16px;width:100%;max-width:100%;display:block;border-radius:12px;animation:none}
+      .hero-float img{width:100%;height:auto;display:block;border-radius:12px;object-fit:cover}
+      .lead{order:3;font-size:clamp(14px,3.5vw,16px);margin:0 auto 20px;max-width:100%;padding:0;line-height:1.5;text-align:center;width:100%;font-weight:700}
+      .hero-actions{order:4;flex-direction:column;gap:10px;width:100%;max-width:100%;margin:0 auto 16px}
+      .hero-actions .btn{width:100%;justify-content:center;max-width:100%;box-sizing:border-box;font-size:15px;padding:14px 18px}
+      .hero-note{order:5;font-size:13px;margin:0 auto 20px;flex-wrap:wrap;justify-content:center;text-align:center;line-height:1.4;padding:0;width:100%}
+      .logo-ticker{order:6;margin-top:0;width:100%;overflow:hidden;max-width:100%}
       .logo-track{animation-duration:28s}
       .logo-badge{width:48px;height:48px;font-size:9px;flex-shrink:0}
       .players{grid-template-columns:1fr;gap:12px}
@@ -305,16 +307,17 @@
     @media (max-width:480px){
       .wrap{padding:12px}
       .section{padding:24px 0}
-      header.hero .wrap.section{padding-top:20px;padding-bottom:24px}
-      .hero-inner{gap:16px}
-      .center-hero{padding:0}
-      .h1{font-size:24px;line-height:1.15;margin:0 0 10px}
-      .h2{font-size:20px}
-      .lead{font-size:14px;padding:0 2px}
-      .hero-float{margin:12px auto 10px;width:100%}
-      .hero-actions{gap:8px}
-      .hero-note{font-size:12px;margin:10px 0;padding:0 4px}
-      .logo-ticker{margin-top:12px}
+      header.hero .wrap.section{padding-top:16px;padding-bottom:24px}
+      .hero-inner{gap:0}
+      .center-hero{padding:0;gap:14px}
+      .h1{font-size:22px;line-height:1.2;margin:0 0 14px;text-align:center}
+      .h2{font-size:18px}
+      .lead{font-size:14px;padding:0;margin:0 auto 16px;text-align:center;line-height:1.5}
+      .hero-float{order:2;margin:0 auto 14px;width:100%;border-radius:10px}
+      .hero-actions{order:4;gap:8px;margin:0 auto 14px;width:100%}
+      .hero-actions .btn{font-size:14px;padding:12px 16px}
+      .hero-note{order:5;font-size:12px;margin:0 auto 16px;padding:0;text-align:center;line-height:1.4}
+      .logo-ticker{order:6;margin-top:0;width:100%}
       .logo-badge{width:42px;height:42px;font-size:8px}
       .tool{padding:8px}
       .tool b{font-size:12px}
