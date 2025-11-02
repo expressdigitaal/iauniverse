@@ -1,674 +1,721 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chega de gastar caro em ferramentas de IA</title>
-  <meta name="description" content="Tenha +70 ferramentas premium de IA e Marketing Digital em um só acesso, pagando apenas R$47/mês. Acesso imediato após a confirmação do pagamento." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b0c10;
-      --surface:#0f1116;
-      --muted:#9aa3b2;
-      --text:#e8eef7;
-      --primary:#00c3ff;
-      --accent:#8a2be2;
-      --success:#00ff9d;
-      --pink:#ff00ff;
-      --card:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
-      --stroke:rgba(255,255,255,.08);
-      --glow:0 0 28px rgba(0,195,255,.18), 0 0 60px rgba(138,43,226,.14);
-      --radius:18px;
-      --maxw:1180px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:radial-gradient(1000px 420px at 70% -10%, rgba(0,195,255,.12), transparent 60%), radial-gradient(1200px 500px at 0% -20%, rgba(138,43,226,.12), transparent 60%), var(--bg);color:var(--text);font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;word-wrap:break-word;overflow-x:hidden}
-    *{scrollbar-width:none}
-    *::-webkit-scrollbar{display:none}
-    img,canvas{max-width:100%;display:block;height:auto}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
-    .section{padding:56px 0}
-    .center{text-align:center}
-    .muted{color:var(--muted)}
-    .pill{
-      display:inline-flex;gap:8px;align-items:center;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--stroke);
-      padding:8px 12px;border-radius:999px;
-      backdrop-filter:blur(6px)
-    }
-    .h1{font-size:clamp(34px,5.6vw,64px);line-height:1.02;font-weight:800;margin:8px 0 12px;display:block}
-    .h2{font-size:clamp(24px,3.6vw,40px);font-weight:800;margin:0 0 10px}
-    .lead{font-size:clamp(14px,2.4vw,18px);color:var(--muted)}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:14px 18px;border-radius:14px;font-weight:700;
-      background:#18202a;border:1px solid var(--stroke);color:#e6edfa;
-      transition:.2s ease;box-shadow:var(--glow)
-    }
-    .btn:hover{transform:translateY(-2px)}
-    .btn-primary{
-      background:linear-gradient(90deg, var(--primary), #6ae1ff);
-      color:#07131b;border:0;font-weight:800
-    }
-    .btn-outline{background:transparent}
-    header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--stroke)}
-    .hero-inner{display:grid;grid-template-columns:1fr;gap:36px;place-items:center;min-height:86vh;justify-items:center}
-    @media (max-width:996px){.hero-inner{grid-template-columns:1fr;min-height:unset}}
-    .headline-ink{
-      background:linear-gradient(90deg, #42e1ff 0%, #08bfff 30%, #11d0ff 60%, #24dbff 100%);
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-      display:inline
-    }
-    .hero-note{display:flex;gap:10px;align-items:center;margin:12px 0;color:#8cf5c4;font-size:14px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .center-hero{max-width:820px;margin:0 auto;text-align:center;justify-self:center}
-    .center-hero .hero-actions{justify-content:center}
-    .center-hero .hero-note{justify-content:center;margin-bottom:16px}
-    .logo-ticker{overflow:hidden;margin-top:18px;width:100%}
-    .logo-track{display:flex;gap:14px;animation:ticker 32s linear infinite;will-change:transform}
-    .logo-badge{
-      width:56px;height:56px;border-radius:50%;display:grid;place-items:center;overflow:hidden;
-      background:var(--card);border:1px solid var(--stroke);
-      box-shadow:0 0 0 1px rgba(0,195,255,.12) inset;
-      font-weight:800;font-size:10px;text-align:center;padding:6px;
-      flex:0 0 auto
-    }
-    .logo-badge:hover{
-      transform:translateY(-2px);
-      border-color:rgba(0,195,255,.55);
-      box-shadow:0 0 0 1px rgba(0,195,255,.35) inset, 0 0 18px rgba(0,195,255,.25), 0 0 28px rgba(0,255,180,.2)
-    }
-    @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    .hero-float{margin:14px auto 6px;width:clamp(260px,60vw,780px);border-radius:16px;overflow:hidden;
-      border:1px solid var(--stroke);background:var(--card);
-      box-shadow:0 0 0 1px rgba(0,195,255,.22) inset, 0 0 28px rgba(0,195,255,.18), 0 0 46px rgba(0,255,180,.14);
-      animation:floatY 6s ease-in-out infinite}
-    .hero-float img{display:block;width:100%;height:auto;object-fit:cover}
-    @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-    .robot-frame{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--stroke);
-      border-radius:16px;box-shadow:var(--glow);
-      padding:12px 12px 0 12px;
-      transform:rotate(-3.5deg);
-      max-width:560px;margin:0 auto
-    }
-    .hero .robot-frame{display:none}
-    .robot-picture{
-      width:100%;aspect-ratio:16/11;border-radius:10px;
-      background:radial-gradient(600px 300px at 60% -20%, rgba(0,195,255,.22), transparent 60%), #0b1218;
-      overflow:hidden;position:relative;
-      box-shadow:0 16px 60px rgba(0,0,0,.25)
-    }
-    #robot3d-canvas{position:absolute;inset:0;width:100%;height:100%}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chega de gastar caro em ferramentas de IA</title>
+<meta name="description" content="Tenha +70 ferramentas premium de IA e Marketing Digital em um só acesso, pagando apenas R$47/mês. Acesso imediato após a confirmação do pagamento." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    /* CORREÇÃO */
-    .tools{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      padding-bottom:6px;
-    }
-    @media (max-width:768px){
-      .tools{
-        display:flex;
-        gap:12px;
-        overflow-x:auto;
-        scroll-snap-type:x mandatory;
-      }
-      .tool{
-        flex:0 0 210px;
-      }
-    }
-    .players{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    @media (max-width:996px){.players{grid-template-columns:repeat(2,1fr)}}
-    .player{
-      background:var(--card);border:1px solid var(--stroke);border-radius:16px;
-      padding:18px 16px;display:flex;align-items:center;gap:14px;min-height:110px;
-      transition:.25s ease;position:relative
-    }
-    .player:hover{
-      transform:translateY(-2px);
-      border-color:rgba(0,195,255,.55);
-      box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,
-                 0 0 22px rgba(0,195,255,.28),
-                 0 0 36px rgba(0,255,180,.24)
-    }
-    .avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.25)}
-    .avatar-ph{width:100%;height:100%;display:grid;place-items:center;background:rgba(255,255,255,.06);color:var(--muted);font-size:12px}
-    .player .name{font-weight:700}
-    .player .role{color:var(--muted);font-size:14px;margin-top:2px}
-    .tools{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      padding-bottom:6px;
-      scroll-snap-type:none;
-    }
-    @media (max-width:768px){
-      .tools{
-        display:flex;
-        gap:12px;
-        overflow-x:auto;
-        scroll-snap-type:x mandatory;
-      }
-      .tool{
-        flex:0 0 210px;
-      }
-    }
-    .tool{
-      background:var(--card);border:1px solid var(--stroke);border-radius:12px;
-      padding:12px;min-height:96px;scroll-snap-align:start;
-      transition:.25s ease;position:relative
-    }
-    .tool:hover{
-      transform:translateY(-2px);
-      border-color:rgba(0,195,255,.55);
-      box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,
-                 0 0 22px rgba(0,195,255,.28),
-                 0 0 36px rgba(0,255,180,.24)
-    }
-    .tool .icon{
-      width:30px;height:30px;border-radius:10px;display:grid;place-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      border:1px solid var(--stroke);margin-bottom:10px
-    }
-    .tool b{display:block;font-size:14px}
-    .tools-note{color:#45ffa7;font-weight:800;margin-top:10px;text-align:center}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width:996px){.steps{grid-template-columns:1fr}}
-    .step{
-      background:var(--card);border:1px solid var(--stroke);border-radius:16px;
-      padding:18px 16px;transition:.25s ease
-    }
-    .step:hover{
-      transform:translateY(-2px);
-      border-color:rgba(0,195,255,.55);
-      box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,
-                 0 0 22px rgba(0,195,255,.28),
-                 0 0 36px rgba(0,255,180,.24)
-    }
-    .step .badge{
-      width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
-      background:linear-gradient(90deg, var(--accent), var(--primary));font-weight:800;color:#061018;margin-bottom:10px
-    }
-    .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    @media (max-width:996px){.plans{grid-template-columns:1fr}}
-    .plan{
-      position:relative;background:var(--card);border:1px solid var(--stroke);border-radius:18px;
-      padding:22px;box-shadow:var(--glow)
-    }
-    .plan.pop{outline:2px solid rgba(255,0,255,.35);box-shadow:0 0 36px rgba(255,0,255,.18)}
-    .ribbon{
-      position:absolute;top:-12px;right:18px;background:linear-gradient(90deg, #ff67ff, #b86bff);
-      color:#140022;font-weight:800;padding:6px 12px;border-radius:999px;font-size:12px
-    }
-    .price{display:flex;align-items:flex-end;gap:8px;margin:6px 0 10px}
-    .price .big{font-size:36px;font-weight:800;color:#7ddaff}
-    .price .per{color:#7ddaff;font-weight:700}
-    ul.list{list-style:none;padding:0;margin:14px 0 16px}
-    ul.list li{display:flex;gap:8px;align-items:flex-start;margin:8px 0;color:var(--muted)}
-    ul.list li:before{content:"✓";color:#6dffbf;font-weight:900}
-    ul.list.white-strong li{color:#ffffff;font-weight:800}
-    footer{border-top:1px solid var(--stroke);padding:30px 0;color:var(--muted);font-size:14px}
-    .brand-gradient{background:linear-gradient(90deg, #00ffb4, #00c3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .reveal{opacity:0;transform:translateY(14px);transition:.6s ease}
-    .reveal.in{opacity:1;transform:none}
-    .promo-callout{
-      position:relative;
-      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
-      border:1px solid var(--stroke);
-      border-radius:16px;
-      padding:18px 18px 16px;
-      box-shadow:0 0 0 1px rgba(0,195,255,.22) inset, 0 0 30px rgba(0,195,255,.25), 0 0 50px rgba(255,0,255,.18);
-      animation:floatY 6s ease-in-out infinite;
-      margin-left:auto;margin-right:auto;
-      text-align:center;
-    }
-    .promo-corner{
-      position:absolute;top:-12px;padding:6px 12px;border-radius:999px;font-weight:800;font-size:12px;
-      background:#ffffff;color:#000000;border:1px solid rgba(255,255,255,.25);
-      box-shadow:none;
-    }
-    .promo-corner.right{right:16px}
-    .promo-corner.left{left:16px}
-    .promo-title{font-weight:800;margin:4px 0 8px;font-size:clamp(18px,2.8vw,22px)}
-    .promo-sub{color:#a9ffde;font-weight:800;margin:6px 0 2px}
-    .promo-price{display:flex;align-items:flex-end;gap:8px;margin-top:6px}
-    .promo-price .big{font-size:34px;font-weight:800;color:#ffb8ff}
-    .promo-list{list-style:none;margin:10px 0 6px;padding:0;text-align:center}
-    .promo-list li{display:flex;gap:8px;align-items:flex-start;margin:6px 0;color:var(--muted)}
-    .promo-list li:before{content:"✓";color:#6dffbf;font-weight:900}
-    .promo-item-name{color:#ffffff;font-weight:700}
-    .promo-item-price{color:#ff5858;font-weight:700}
-    .promo-text-red{color:#ff5858}
-    .promo-text-green{color:#45ffa7;font-weight:800}
-    .promo-text-green-dark{color:#0a8f5a;font-weight:800}
-    .promo-list.white li{color:#ffffff;font-weight:800}
-
-    @keyframes floatY{
-      0%{transform:translateY(0)}
-      50%{transform:translateY(-6px)}
-      100%{transform:translateY(0)}
-    }
-
-    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
-    @media (max-width:996px){.testimonials{grid-template-columns:1fr}}
-    .tcard{
-      background:var(--card);border:1px solid var(--stroke);border-radius:16px;
-      padding:18px;display:flex;flex-direction:column;gap:10px;min-height:220px;
-      transition:.25s ease
-    }
-    .tcard:hover{
-      transform:translateY(-2px);
-      border-color:rgba(0,195,255,.55);
-      box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,
-                 0 0 22px rgba(0,195,255,.28),
-                 0 0 36px rgba(0,255,180,.24)
-    }
-    .thead{display:flex;align-items:center;gap:12px}
-    .tavatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.25);flex-shrink:0}
-    .tname{font-weight:800}
-    .tstars{color:#ffd66b;font-size:16px;letter-spacing:2px}
-    .tquote{color:var(--muted);line-height:1.5}
-  </style>
+<style>
+:root{
+  --bg:#0b0c10;
+  --surface:#0f1116;
+  --muted:#9aa3b2;
+  --text:#e8eef7;
+  --primary:#00c3ff;
+  --accent:#8a2be2;
+  --success:#00ff9d;
+  --pink:#ff00ff;
+  --card:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
+  --stroke:rgba(255,255,255,.08);
+  --glow:0 0 28px rgba(0,195,255,.18), 0 0 60px rgba(138,43,226,.14);
+  --radius:18px;
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  background:
+    radial-gradient(1000px 420px at 70% -10%, rgba(0,195,255,.12), transparent 60%),
+    radial-gradient(1200px 500px at 0% -20%, rgba(138,43,226,.12), transparent 60%),
+    var(--bg);
+  color:var(--text);
+  font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  word-wrap:break-word;
+  overflow-x:hidden
+}
+*{scrollbar-width:none}
+*::-webkit-scrollbar{display:none}
+img,canvas{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
+.section{padding:56px 0}
+.center{text-align:center}
+.muted{color:var(--muted)}
+.pill{
+  display:inline-flex;gap:8px;align-items:center;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--stroke);
+  padding:8px 12px;border-radius:999px;
+  backdrop-filter:blur(6px)
+}
+.h1{font-size:clamp(34px,5.6vw,64px);line-height:1.02;font-weight:800;margin:8px 0 12px;display:block}
+.h2{font-size:clamp(24px,3.6vw,40px);font-weight:800;margin:0 0 10px}
+.lead{font-size:clamp(14px,2.4vw,18px);color:var(--muted)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 18px;border-radius:14px;font-weight:700;
+  background:#18202a;border:1px solid var(--stroke);color:#e6edfa;
+  transition:.2s ease;box-shadow:var(--glow)
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{
+  background:linear-gradient(90deg, var(--primary), #6ae1ff);
+  color:#07131b;border:0;font-weight:800
+}
+.btn-outline{background:transparent}
+header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--stroke)}
+.hero-inner{
+  display:grid;grid-template-columns:1fr;gap:36px;place-items:center;min-height:86vh;justify-items:center
+}
+@media (max-width:996px){.hero-inner{grid-template-columns:1fr;min-height:unset}}
+.headline-ink{
+  background:linear-gradient(90deg, #42e1ff 0%, #08bfff 30%, #11d0ff 60%, #24dbff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;display:inline
+}
+.hero-note{display:flex;gap:10px;align-items:center;margin:12px 0;color:#8cf5c4;font-size:14px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.center-hero{max-width:820px;margin:0 auto;text-align:center;justify-self:center}
+.center-hero .hero-actions{justify-content:center}
+.center-hero .hero-note{justify-content:center;margin-bottom:16px}
+.logo-ticker{overflow:hidden;margin-top:18px;width:100%}
+.logo-track{display:flex;gap:14px;animation:ticker 32s linear infinite;will-change:transform}
+.logo-badge{
+  width:56px;height:56px;border-radius:50%;display:grid;place-items:center;overflow:hidden;
+  background:var(--card);border:1px solid var(--stroke);
+  box-shadow:0 0 0 1px rgba(0,195,255,.12) inset;
+  font-weight:800;font-size:10px;text-align:center;padding:6px;flex:0 0 auto
+}
+.logo-badge:hover{
+  transform:translateY(-2px);
+  border-color:rgba(0,195,255,.55);
+  box-shadow:0 0 0 1px rgba(0,195,255,.35) inset, 0 0 18px rgba(0,195,255,.25), 0 0 28px rgba(0,255,180,.2)
+}
+.logo-badge img{background:#000}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.hero-float{
+  margin:14px auto 6px;width:clamp(260px,60vw,780px);border-radius:16px;overflow:hidden;
+  border:1px solid var(--stroke);background:var(--card);
+  box-shadow:0 0 0 1px rgba(0,195,255,.22) inset,0 0 28px rgba(0,195,255,.18),0 0 46px rgba(0,255,180,.14);
+  animation:floatY 6s ease-in-out infinite
+}
+.hero-float img{display:block;width:100%;height:auto;object-fit:cover}
+@keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+.robot-frame{
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid var(--stroke);border-radius:16px;box-shadow:var(--glow);
+  padding:12px 12px 0 12px;transform:rotate(-3.5deg);max-width:560px;margin:0 auto
+}
+.hero .robot-frame{display:none}
+.robot-picture{
+  width:100%;aspect-ratio:16/11;border-radius:10px;
+  background:radial-gradient(600px 300px at 60% -20%, rgba(0,195,255,.22), transparent 60%), #0b1218;
+  overflow:hidden;position:relative;box-shadow:0 16px 60px rgba(0,0,0,.25)
+}
+#robot3d-canvas{position:absolute;inset:0;width:100%;height:100%}
+.players{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:996px){.players{grid-template-columns:repeat(2,1fr)}}
+.player{
+  background:var(--card);border:1px solid var(--stroke);border-radius:16px;
+  padding:18px 16px;display:flex;align-items:center;gap:14px;min-height:110px;
+  transition:.25s ease;position:relative
+}
+.player:hover{
+  transform:translateY(-2px);
+  border-color:rgba(0,195,255,.55);
+  box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,0 0 22px rgba(0,195,255,.28),0 0 36px rgba(0,255,180,.24)
+}
+.avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.25)}
+.avatar-ph{width:100%;height:100%;display:grid;place-items:center;background:rgba(255,255,255,.06);color:var(--muted);font-size:12px}
+.player .name{font-weight:700}
+.player .role{color:var(--muted);font-size:14px;margin-top:2px}
+.tools{
+  display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;
+  scroll-snap-type:x mandatory;-ms-overflow-style:none;scrollbar-width:none
+}
+.tools::-webkit-scrollbar{display:none}
+@media (max-width:768px){
+  .tools{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;overflow-x:visible;padding-bottom:0;scroll-snap-type:none}
+}
+.tool{
+  background:var(--card);border:1px solid var(--stroke);border-radius:12px;
+  padding:12px;min-height:96px;scroll-snap-align:start;flex:0 0 210px;
+  transition:.25s ease;position:relative
+}
+@media (max-width:768px){
+  .tool{flex:none;width:100%;min-height:100px}
+}
+.tool:hover{
+  transform:translateY(-2px);
+  border-color:rgba(0,195,255,.55);
+  box-shadow:0 0 0 1px rgba(0,195,255,.35) inset, 0 0 22px rgba(0,195,255,.28), 0 0 36px rgba(0,255,180,.24)
+}
+.tool .icon{
+  width:30px;height:30px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border:1px solid var(--stroke);margin-bottom:10px
+}
+.tool b{display:block;font-size:14px}
+.tools-note{color:#45ffa7;font-weight:800;margin-top:10px;text-align:center}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:996px){.steps{grid-template-columns:1fr}}
+.step{
+  background:var(--card);border:1px solid var(--stroke);border-radius:16px;
+  padding:18px 16px;transition:.25s ease
+}
+.step:hover{
+  transform:translateY(-2px);
+  border-color:rgba(0,195,255,.55);
+  box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,0 0 22px rgba(0,195,255,.28),0 0 36px rgba(0,255,180,.24)
+}
+.step .badge{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(90deg, var(--accent), var(--primary));
+  font-weight:800;color:#061018;margin-bottom:10px
+}
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media (max-width:996px){.plans{grid-template-columns:1fr}}
+.plan{
+  position:relative;background:var(--card);border:1px solid var(--stroke);
+  border-radius:18px;padding:22px;box-shadow:var(--glow)
+}
+.plan.pop{
+  outline:2px solid rgba(255,0,255,.35);
+  box-shadow:0 0 36px rgba(255,0,255,.18)
+}
+.ribbon{
+  position:absolute;top:-12px;right:18px;
+  background:linear-gradient(90deg, #ff67ff, #b86bff);
+  color:#140022;font-weight:800;padding:6px 12px;border-radius:999px;font-size:12px
+}
+.price{display:flex;align-items:flex-end;gap:8px;margin:6px 0 10px}
+.price .big{font-size:36px;font-weight:800;color:#7ddaff}
+.price .per{color:#7ddaff;font-weight:700}
+ul.list{list-style:none;padding:0;margin:14px 0 16px}
+ul.list li{display:flex;gap:8px;align-items:flex-start;margin:8px 0;color:var(--muted)}
+ul.list li:before{content:"✓";color:#6dffbf;font-weight:900}
+ul.list.white-strong li{color:#ffffff;font-weight:800}
+.support{
+  background:radial-gradient(800px 240px at 50% -20%, rgba(0,255,157,.18), transparent 60%);
+  border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)
+}
+.whats{
+  display:inline-flex;gap:10px;align-items:center;
+  background:linear-gradient(90deg, var(--success), #b6ffd9);
+  color:#063;padding:14px 18px;border-radius:14px;font-weight:800
+}
+footer{border-top:1px solid var(--stroke);padding:30px 0;color:var(--muted);font-size:14px}
+.brand-gradient{
+  background:linear-gradient(90deg, #00ffb4, #00c3ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.reveal{opacity:0;transform:translateY(14px);transition:.6s ease}
+.reveal.in{opacity:1;transform:none}
+.promo-callout{
+  position:relative;
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+  border:1px solid var(--stroke);border-radius:16px;
+  padding:18px 18px 16px;
+  box-shadow:0 0 0 1px rgba(0,195,255,.22) inset, 0 0 30px rgba(0,195,255,.25), 0 0 50px rgba(255,0,255,.18);
+  animation:floatY 6s ease-in-out infinite;margin-left:auto;margin-right:auto;text-align:center
+}
+.promo-ribbon{
+  position:absolute;top:-12px;left:16px;
+  background:linear-gradient(90deg,#42e1ff,#b86bff);
+  color:#061018;font-weight:800;border-radius:999px;padding:6px 12px;font-size:12px
+}
+.promo-title{font-weight:800;margin:4px 0 8px;font-size:clamp(18px,2.8vw,22px)}
+.promo-sub{color:#a9ffde;font-weight:800;margin:6px 0 2px}
+.promo-price{display:flex;align-items:flex-end;gap:8px;margin-top:6px}
+.promo-price .big{font-size:34px;font-weight:800;color:#ffb8ff}
+.promo-list{list-style:none;margin:10px 0 6px;padding:0;text-align:center}
+.promo-list li{display:flex;gap:8px;align-items:flex-start;margin:6px 0;color:var(--muted)}
+.promo-list li:before{content:"✓";color:#6dffbf;font-weight:900}
+.promo-item-name{color:#ffffff;font-weight:700}
+.promo-item-price{color:#ff5858;font-weight:700}
+.promo-text-red{color:#ff5858}
+.promo-text-green{color:#45ffa7;font-weight:800}
+.promo-text-green-dark{color:#0a8f5a;font-weight:800}
+.promo-list.white li{color:#ffffff;font-weight:800}
+.promo-corner{
+  position:absolute;top:-12px;padding:6px 12px;border-radius:999px;
+  font-weight:800;font-size:12px;
+  background:#ffffff;color:#000000;border:1px solid rgba(255,255,255,.25);box-shadow:none
+}
+.promo-corner.right{right:16px}
+.promo-corner.left{left:16px}
+@media (min-width: 997px){ .promo-callout{width: calc(50% - 9px)} }
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+@media (max-width:996px){.testimonials{grid-template-columns:1fr}}
+.tcard{
+  background:var(--card);border:1px solid var(--stroke);border-radius:16px;
+  padding:18px;display:flex;flex-direction:column;gap:10px;min-height:220px;transition:.25s ease
+}
+.tcard:hover{
+  transform:translateY(-2px);
+  border-color:rgba(0,195,255,.55);
+  box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,0 0 22px rgba(0,195,255,.28),0 0 36px rgba(0,255,180,.24)
+}
+.thead{display:flex;align-items:center;gap:12px}
+.tavatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.25);flex-shrink:0}
+.tname{font-weight:800}
+.tstars{color:#ffd66b;font-size:16px;letter-spacing:2px}
+.tquote{color:var(--muted);line-height:1.5}
+</style>
 </head>
+
 <body>
 
-  <header class="hero">
-    <div class="wrap section" style="padding-top:40px;padding-bottom:56px">
-      <div class="hero-inner">
-        <div class="center-hero">
-          <h1 class="h1 reveal">
-            Chega de gastar caro<br>
-            em <span class="headline-ink">ferramentas<br>de IA</span>
-          </h1>
+<header class="hero">
+  <div class="wrap section" style="padding-top:40px;padding-bottom:56px">
+    <div class="hero-inner">
+      <div class="center-hero">
+        <h1 class="h1 reveal">Chega de gastar caro<br> em <span class="headline-ink">ferramentas<br>de IA</span></h1>
+        <div class="hero-float reveal"><img src="https://i.postimg.cc/QdvcTMVQ/IA-generativa-capa-1.jpg" alt="Destaque IA"></div>
+        <p class="lead reveal" style="color:#ffffff;font-weight:800">Tenha +70 Ferramentas premium de IA e Marketing Digital em um só acesso, pagando apenas R$47/mês.</p>
+        <div class="hero-actions reveal">
+          <a href="#planos" class="btn btn-primary">Acessar Agora</a>
+          <a href="#como-funciona" class="btn btn-outline">Como Funciona</a>
+        </div>
+        <div class="hero-note reveal">✅ Acesso imediato após a confirmação do pagamento</div>
 
-          <div class="hero-float reveal">
-            <img src="https://i.postimg.cc/QdvcTMVQ/IA-generativa-capa-1.jpg" alt="Destaque IA">
+        <div class="logo-ticker reveal" aria-hidden="true">
+          <div class="logo-track">
+            <div class="logo-badge" data-logo="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png">Veo 3</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png">ChatGPT</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png">Sora GPT</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/L637kd38/Design-sem-nome-10.png">Heygen</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/43xTHfDL/Design-sem-nome-9.png">Semrush</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png"></div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png">Freepik</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png">CapCut PRO</div>
+
+            <div class="logo-badge" data-logo="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png">Veo 3</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png">ChatGPT</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png">Sora GPT</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/L637kd38/Design-sem-nome-10.png">Heygen</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/43xTHfDL/Design-sem-nome-9.png">Semrush</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png">Canva Pro</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png">Freepik</div>
+            <div class="logo-badge" data-logo="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png">CapCut PRO</div>
           </div>
-
-          <p class="lead reveal" style="color:#ffffff;font-weight:800">
-            Tenha +70 Ferramentas premium de IA e Marketing Digital em um só acesso, pagando apenas R$47/mês.
-          </p>
-
-          <div class="hero-actions reveal">
-            <a href="#planos" class="btn btn-primary">Acessar Agora</a>
-            <a href="#como-funciona" class="btn btn-outline">Como Funciona</a>
-          </div>
-
-          <div class="hero-note reveal">✅ Acesso imediato após a confirmação do pagamento</div>
-
-          <div class="logo-ticker reveal" aria-hidden="true">
-            <div class="logo-track">
-              <div class="logo-badge"><img src="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/L637kd38/Design-sem-nome-10.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/43xTHfDL/Design-sem-nome-9.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png"></div>
-
-              <div class="logo-badge"><img src="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/L637kd38/Design-sem-nome-10.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/43xTHfDL/Design-sem-nome-9.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png"></div>
-              <div class="logo-badge"><img src="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png"></div>
-            </div>
-          </div>
-
         </div>
+      </div>
+
+      <div class="robot-frame reveal">
+        <div class="robot-picture"><canvas id="robot3d-canvas"></canvas></div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="h2 center reveal">Tudo que os <span class="brand-gradient">grandes players</span> usam</h2>
+    <p class="center muted reveal">Profissionais de diversas áreas já estão usando</p>
+
+    <div class="players" style="margin-top:18px">
+      <div class="player reveal">
+        <div class="avatar"><img src="https://i.postimg.cc/fyFSPWd8/images-1.jpg" alt="Carlos"></div>
+        <div><div class="name">João Marcus</div></div>
+      </div>
+
+      <div class="player reveal">
+        <div class="avatar"><img src="https://i.postimg.cc/gjr64LxQ/images-2.jpg" alt="Ana"></div>
+        <div><div class="name">Ruyter Pouel</div></div>
+      </div>
+
+      <div class="player reveal">
+        <div class="avatar"><img src="https://i.postimg.cc/K874PD0s/1713344518140.png" alt="Pedro"></div>
+        <div><div class="name">Thiago Finch</div></div>
+      </div>
+
+      <div class="player reveal">
+        <div class="avatar"><img src="https://i.postimg.cc/mgWt15yK/En-JH360Cy-FIuuh0T1Ov-Ym4Gapo.png" alt="Julia"></div>
+        <div><div class="name">Caio Martins</div></div>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="wrap">
-      <h2 class="h2 center reveal">Tudo que os <span class="brand-gradient">grandes players</span> usam</h2>
-      <p class="center muted reveal">Profissionais de diversas áreas já estão usando</p>
+<section class="section">
+  <div class="wrap">
+    <h2 class="h2 center reveal">Transforme suas ideias em <span class="brand-gradient">vídeos, imagens</span> e <span class="brand-gradient">textos</span> prontos em segundos!</h2>
 
-      <div class="players" style="margin-top:18px">
-        <div class="player reveal">
-          <div class="avatar"><img src="https://i.postimg.cc/fyFSPWd8/images-1.jpg"></div>
-          <div><div class="name">João Marcus</div></div>
-        </div>
-        <div class="player reveal">
-          <div class="avatar"><img src="https://i.postimg.cc/gjr64LxQ/images-2.jpg"></div>
-          <div><div class="name">Ruyter Pouel</div></div>
-        </div>
-        <div class="player reveal">
-          <div class="avatar"><img src="https://i.postimg.cc/K874PD0s/1713344518140.png"></div>
-          <div><div class="name">Thiago Finch</div></div>
-        </div>
-        <div class="player reveal">
-          <div class="avatar"><img src="https://i.postimg.cc/mgWt15yK/En-JH360Cy-FIuuh0T1Ov-Ym4Gapo.png"></div>
-          <div><div class="name">Caio Martins</div></div>
-        </div>
+    <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:24px">1 — <span class="brand-gradient">Vídeos prontos</span> em segundos</h3>
+  </div>
+
+  <div class="tools" style="margin-top:12px">
+    <div class="tool reveal"><div class="icon">🎬</div><b>Invideo</b><div class="muted">Vídeos rápidos a partir de modelos e IA.</div></div>
+    <div class="tool reveal"><div class="icon">🎥</div><b>Veo 3</b><div class="muted">Geração de vídeo avançada por prompt.</div></div>
+    <div class="tool reveal"><div class="icon">🤖</div><b>Heygen</b><div class="muted">Avatares falando com sua voz ou texto.</div></div>
+    <div class="tool reveal"><div class="icon">📽️</div><b>Runway</b><div class="muted">Edição e geração de vídeos com IA.</div></div>
+    <div class="tool reveal"><div class="icon">🎞️</div><b>Sora GPT</b><div class="muted">Criação de cenas cinematográficas por IA.</div></div>
+  </div>
+
+  <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:34px">2 — Crie <span class="brand-gradient">imagens, textos, vídeos e vozes</span></h3>
+
+  <div class="tools" style="margin-top:12px">
+    <div class="tool reveal"><div class="icon">💬</div><b>ChatGPT</b><div class="muted">Escrita, ideias e automações com IA.</div></div>
+    <div class="tool reveal"><div class="icon">🎨</div><b>Midjourney</b><div class="muted">Imagens artísticas em altíssima qualidade.</div></div>
+    <div class="tool reveal"><div class="icon">✨</div><b>Leonardo AI</b><div class="muted">Design e arte generativa.</div></div>
+    <div class="tool reveal"><div class="icon">🧠</div><b>Claude AI</b><div class="muted">Texto longo com raciocínio avançado.</div></div>
+    <div class="tool reveal"><div class="icon">⚡</div><b>Haiku</b><div class="muted">Modelos rápidos para tarefas do dia a dia.</div></div>
+    <div class="tool reveal"><div class="icon">🗣️</div><b>ElevenLabs</b><div class="muted">Voz humana realista em segundos.</div></div>
+  </div>
+
+  <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:34px">3 — Espione <span class="brand-gradient">anúncios que faturam</span> milhões</h3>
+
+  <div class="tools" style="margin-top:12px">
+    <div class="tool reveal"><div class="icon">🔍</div><b>AdSpy</b><div class="muted">Descubra criativos vencedores.</div></div>
+    <div class="tool reveal"><div class="icon">🎯</div><b>AdHeart</b><div class="muted">Biblioteca de ads para inspiração.</div></div>
+    <div class="tool reveal"><div class="icon">🛰️</div><b>BigSpy</b><div class="muted">Monitoramento multi-plataforma.</div></div>
+    <div class="tool reveal"><div class="icon">🧭</div><b>Minea</b><div class="muted">Produtos e criativos de alta conversão.</div></div>
+    <div class="tool reveal"><div class="icon">📈</div><b>Semrush</b><div class="muted">Pesquisa e inteligência de tráfego.</div></div>
+    <div class="tool reveal"><div class="icon">🛡️</div><b>Guardiller</b><div class="muted">Análises e proteção de contas.</div></div>
+  </div>
+
+  <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:34px">4 — <span class="brand-gradient">Design profissional</span> ilimitado</h3>
+
+  <div class="tools" style="margin-top:12px">
+    <div class="tool reveal"><div class="icon">🖌️</div><b>Canva Pro</b><div class="muted">Modelos prontos e editor completo.</div></div>
+    <div class="tool reveal"><div class="icon">📚</div><b>Freepik</b><div class="muted">Vetores, fotos e PSDs premium.</div></div>
+    <div class="tool reveal"><div class="icon">🧩</div><b>Envato Elements</b><div class="muted">Recursos criativos ilimitados.</div></div>
+    <div class="tool reveal"><div class="icon">🎼</div><b>Storyblocks</b><div class="muted">Banco de vídeos, trilhas e efeitos.</div></div>
+    <div class="tool reveal"><div class="icon">✂️</div><b>CapCut PRO</b><div class="muted">Edição de vídeos para social.</div></div>
+    <div class="tool reveal"><div class="icon">🎬</div><b>Invideo</b><div class="muted">Crie vídeos profissionais rápido.</div></div>
+  </div>
+
+  <div class="tools-note">+ Mais de 62 outras ferramentas premium incluídas!</div>
+</section>
+
+<section id="como-funciona" class="section">
+  <div class="wrap">
+    <h2 class="h2 center reveal">Como <span class="brand-gradient">funciona?</span></h2>
+    <p class="center muted reveal">Simples, rápido e seguro</p>
+
+    <div class="steps" style="margin-top:18px">
+      <div class="step reveal">
+        <div class="badge">1</div>
+        <h3>Você acessa tudo</h3>
+        <p class="muted">Todas as ferramentas premium em um único painel centralizado.</p>
+      </div>
+      <div class="step reveal">
+        <div class="badge">2</div>
+        <h3>Conta segura</h3>
+        <p class="muted">Seus dados protegidos com criptografia de ponta.</p>
+      </div>
+      <div class="step reveal">
+        <div class="badge">3</div>
+        <h3>1 clique e pronto</h3>
+        <p class="muted">Comece a usar imediatamente, sem complicação.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="wrap">
-      <h2 class="h2 center reveal">Transforme suas ideias em <span class="brand-gradient">vídeos, imagens</span> e <span class="brand-gradient">textos</span> prontos em segundos!</h2>
+<section id="planos" class="section" style="padding-top:70px">
+  <div class="wrap">
+    <div class="promo-callout reveal" style="margin-bottom:16px">
+      <div class="promo-corner left"><span style="color:#000">Valor total se fosse assinar tudo:</span></div>
+      <div class="promo-corner right"><span class="promo-text-green-dark">Você leva todas essas ferramentas:</span></div>
 
-      <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:24px">1 — <span class="brand-gradient">Vídeos prontos</span> em segundos</h3>
+      <div class="promo-title">Todas as ferramentas premium por um preço que cabe no bolso</div>
 
-      <div class="tools" style="margin-top:12px">
-        <div class="tool reveal"><div class="icon">🎬</div><b>Invideo</b><div class="muted">Vídeos rápidos a partir de modelos e IA.</div></div>
-        <div class="tool reveal"><div class="icon">🎥</div><b>Veo 3</b><div class="muted">Geração de vídeo avançada por prompt.</div></div>
-        <div class="tool reveal"><div class="icon">🤖</div><b>Heygen</b><div class="muted">Avatares falando com sua voz ou texto.</div></div>
-        <div class="tool reveal"><div class="icon">📽️</div><b>Runway</b><div class="muted">Edição e geração de vídeos com IA.</div></div>
-        <div class="tool reveal"><div class="icon">🎞️</div><b>Sora GPT</b><div class="muted">Criação de cenas cinematográficas por IA.</div></div>
+      <ul class="promo-list">
+        <li><span class="promo-item-name">ChatGPT Plus</span> — <span class="promo-item-price">R$ 95/mês</span></li>
+        <li><span class="promo-item-name">CapCut Pro</span> — <span class="promo-item-price">R$ 65,90/mês</span></li>
+        <li><span class="promo-item-name">Veo 3</span> — <span class="promo-item-price">R$ 249,99/mês</span></li>
+        <li><span class="promo-item-name">HeyGen</span> — <span class="promo-item-price">R$ 155/mês</span></li>
+        <li><span class="promo-item-name">Semrush</span> — <span class="promo-item-price">R$ 749/mês</span></li>
+      </ul>
+
+      <div class="promo-price">
+        <span class="big" style="color:#ff5858">R$ 1.315,89</span><span class="per promo-text-red">/ mês</span> 🔥
       </div>
 
-      <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:34px">2 — Crie <span class="brand-gradient">imagens, textos, vídeos e vozes</span></h3>
-      <div class="tools" style="margin-top:12px">
-        <div class="tool reveal"><div class="icon">💬</div><b>ChatGPT</b><div class="muted">Escrita, ideias e automações com IA.</div></div>
-        <div class="tool reveal"><div class="icon">🎨</div><b>Midjourney</b><div class="muted">Imagens artísticas em altíssima qualidade.</div></div>
-        <div class="tool reveal"><div class="icon">✨</div><b>Leonardo AI</b><div class="muted">Design e arte generativa.</div></div>
-        <div class="tool reveal"><div class="icon">🧠</div><b>Claude AI</b><div class="muted">Texto longo com raciocínio avançado.</div></div>
-        <div class="tool reveal"><div class="icon">⚡</div><b>Haiku</b><div class="muted">Modelos rápidos para tarefas do dia a dia.</div></div>
-        <div class="tool reveal"><div class="icon">🗣️</div><b>ElevenLabs</b><div class="muted">Voz humana realista em segundos.</div></div>
-      </div>
+      <div class="promo-sub promo-text-green">Mas você não vai pagar isso tudo.</div>
 
-      <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:34px">3 — Espione <span class="brand-gradient">anúncios que faturam</span> milhões</h3>
-      <div class="tools" style="margin-top:12px">
-        <div class="tool reveal"><div class="icon">🔍</div><b>AdSpy</b><div class="muted">Descubra criativos vencedores.</div></div>
-        <div class="tool reveal"><div class="icon">🎯</div><b>AdHeart</b><div class="muted">Biblioteca de ads para inspiração.</div></div>
-        <div class="tool reveal"><div class="icon">🛰️</div><b>BigSpy</b><div class="muted">Monitoramento multi-plataforma.</div></div>
-        <div class="tool reveal"><div class="icon">🧭</div><b>Minea</b><div class="muted">Produtos e criativos de alta conversão.</div></div>
-        <div class="tool reveal"><div class="icon">📈</div><b>Semrush</b><div class="muted">Pesquisa e inteligência de tráfego.</div></div>
-        <div class="tool reveal"><div class="icon">🛡️</div><b>Guardiller</b><div class="muted">Análises e proteção de contas.</div></div>
-      </div>
+      <ul class="promo-list white" style="margin-top:0">
+        <li>100% prontas</li>
+        <li>Sem pagar mensalidade individual</li>
+        <li>Acesso VIP</li>
+        <li>Uso ilimitado</li>
+      </ul>
 
-      <h3 class="h2 reveal center" style="font-size:clamp(20px,3vw,28px);margin-top:34px">4 — <span class="brand-gradient">Design profissional</span> ilimitado</h3>
-      <div class="tools" style="margin-top:12px">
-        <div class="tool reveal"><div class="icon">🖌️</div><b>Canva Pro</b><div class="muted">Modelos prontos e editor completo.</div></div>
-        <div class="tool reveal"><div class="icon">📚</div><b>Freepik</b><div class="muted">Vetores, fotos e PSDs premium.</div></div>
-        <div class="tool reveal"><div class="icon">🧩</div><b>Envato Elements</b><div class="muted">Recursos criativos ilimitados.</div></div>
-        <div class="tool reveal"><div class="icon">🎼</div><b>Storyblocks</b><div class="muted">Banco de vídeos, trilhas e efeitos.</div></div>
-        <div class="tool reveal"><div class="icon">✂️</div><b>CapCut PRO</b><div class="muted">Edição de vídeos para social.</div></div>
-        <div class="tool reveal"><div class="icon">🎬</div><b>Invideo</b><div class="muted">Crie vídeos profissionais rápido.</div></div>
-      </div>
-
-      <div class="tools-note">+ Mais de 62 outras ferramentas premium incluídas!</div>
-    </div>
-  </section>
-
-  <section id="como-funciona" class="section">
-    <div class="wrap">
-      <h2 class="h2 center reveal">Como <span class="brand-gradient">funciona?</span></h2>
-      <p class="center muted reveal">Simples, rápido e seguro</p>
-      <div class="steps" style="margin-top:18px">
-        <div class="step reveal">
-          <div class="badge">1</div>
-          <h3>Você acessa tudo</h3>
-          <p class="muted">Todas as ferramentas premium em um único painel centralizado.</p>
-        </div>
-        <div class="step reveal">
-          <div class="badge">2</div>
-          <h3>Conta segura</h3>
-          <p class="muted">Seus dados protegidos com criptografia de ponta.</p>
-        </div>
-        <div class="step reveal">
-          <div class="badge">3</div>
-          <h3>1 clique e pronto</h3>
-          <p class="muted">Comece a usar imediatamente, sem complicação.</p>
-        </div>
+      <div class="promo-price" style="margin-top:10px">
+        <span class="big" style="color:#45ffa7">POR APENAS: R$ 47,00</span>
       </div>
     </div>
-  </section>
 
-  <section id="planos" class="section" style="padding-top:70px">
-    <div class="wrap">
-      <div class="promo-callout reveal" style="margin-bottom:16px">
-        <div class="promo-corner left"><span style="color:#000">Valor total se fosse assinar tudo:</span></div>
-        <div class="promo-corner right"><span class="promo-text-green-dark">Você leva todas essas ferramentas:</span></div>
-        <div class="promo-title">Todas as ferramentas premium por um preço que cabe no bolso</div>
-        <ul class="promo-list">
-          <li><span class="promo-item-name">ChatGPT Plus</span> — <span class="promo-item-price">R$ 95/mês</span></li>
-          <li><span class="promo-item-name">CapCut Pro</span> — <span class="promo-item-price">R$ 65,90/mês</span></li>
-          <li><span class="promo-item-name">Veo 3</span> — <span class="promo-item-price">R$ 249,99/mês</span></li>
-          <li><span class="promo-item-name">HeyGen</span> — <span class="promo-item-price">R$ 155/mês</span></li>
-          <li><span class="promo-item-name">Semrush</span> — <span class="promo-item-price">R$ 749/mês</span></li>
+    <h2 class="h2 center reveal">Escolha seu <span class="brand-gradient">plano</span></h2>
+    <p class="center muted reveal">Economia garantida com o plano trimestral</p>
+
+    <div class="plans" style="margin-top:18px">
+      <div class="plan reveal">
+        <h3>Mensal</h3>
+        <div class="price"><span class="big">R$47</span><span class="per">/mês</span></div>
+        <ul class="list white-strong">
+          <li>Acesso a +70 ferramentas premium de IA</li>
+          <li>Suporte prioritário via WhatsApp</li>
+          <li>Atualizações automáticas</li>
+          <li>Acesso imediato após pagamento</li>
+          <li>Cancele quando quiser</li>
         </ul>
-        <div class="promo-price"><span class="big" style="color:#ff5858">R$ 1.315,89</span><span class="per promo-text-red">/ mês</span> 🔥</div>
-        <div class="promo-sub promo-text-green">Mas você não vai pagar isso tudo.</div>
-        <ul class="promo-list white" style="margin-top:0">
-          <li>100% prontas</li>
-          <li>Sem pagar mensalidade individual</li>
-          <li>Acesso VIP</li>
-          <li>Uso ilimitado</li>
+        <a class="btn btn-primary" href="https://pay.cakto.com.br/3awkxu5_629617" target="_blank" rel="noopener">Assinar Agora</a>
+      </div>
+
+      <div class="plan pop reveal">
+        <div class="ribbon">★ MAIS POPULAR</div>
+        <h3>Trimestral</h3>
+        <div class="price"><span class="big" style="color:#b87dff">R$117</span></div>
+        <div class="muted" style="margin-top:-6px;margin-bottom:8px;color:#1bbf7a;font-weight:800">
+          Apenas R$39/mês • Economize R$24
+        </div>
+        <ul class="list white-strong">
+          <li>ChatGPT, Midjourney, Leonardo AI e mais</li>
+          <li>Suporte prioritário via WhatsApp</li>
+          <li>Atualizações automáticas</li>
+          <li>Acesso imediato após pagamento</li>
+          <li><span style="color:#ffffff;font-weight:800">Cancele quando quiser</span></li>
+          <li><span style="color:#21d19f;font-weight:800">3 meses de acesso garantido</span></li>
         </ul>
-        <div class="promo-price" style="margin-top:10px"><span class="big" style="color:#45ffa7">POR APENAS: R$ 47,00</span></div>
-      </div>
-
-      <h2 class="h2 center reveal">Escolha seu <span class="brand-gradient">plano</span></h2>
-      <p class="center muted reveal">Economia garantida com o plano trimestral</p>
-
-      <div class="plans" style="margin-top:18px">
-        
-        <div class="plan reveal">
-          <h3>Mensal</h3>
-          <div class="price"><span class="big">R$47</span><span class="per">/mês</span></div>
-          <ul class="list white-strong">
-            <li>Acesso a +70 ferramentas premium de IA</li>
-            <li>Suporte prioritário via WhatsApp</li>
-            <li>Atualizações automáticas</li>
-            <li>Acesso imediato após pagamento</li>
-            <li>Cancele quando quiser</li>
-          </ul>
-          <a class="btn btn-primary" href="https://pay.cakto.com.br/3awkxu5_629617" target="_blank" rel="noopener">Assinar Agora</a>
-        </div>
-
-        <div class="plan pop reveal">
-          <div class="ribbon">★ MAIS POPULAR</div>
-          <h3>Trimestral</h3>
-          <div class="price"><span class="big" style="color:#b87dff">R$117</span></div>
-          <div class="muted" style="margin-top:-6px;margin-bottom:8px;color:#1bbf7a;font-weight:800">Apenas R$39/mês • Economize R$24</div>
-          <ul class="list white-strong">
-            <li>ChatGPT, Midjourney, Leonardo AI e mais</li>
-            <li>Suporte prioritário via WhatsApp</li>
-            <li>Atualizações automáticas</li>
-            <li>Acesso imediato após pagamento</li>
-            <li><span style="color:#ffffff;font-weight:800">Cancele quando quiser</span></li>
-            <li><span style="color:#21d19f;font-weight:800">3 meses de acesso garantido</span></li>
-          </ul>
-          <a class="btn" style="background:linear-gradient(90deg,#ff67ff,#b86bff);color:#210039;border:0;font-weight:800" href="https://pay.cakto.com.br/v9qe7nk" target="_blank" rel="noopener">Começar Agora</a>
-        </div>
-      </div>
-
-      <p class="center muted" style="margin-top:16px;color:#ffffff;font-weight:800;font-size:16px">Pagamento 100% seguro · Acesso imediato · Cancele quando quiser</p>
-
-      <div class="testimonials">
-        <div class="tcard reveal">
-          <div class="thead">
-            <div class="tavatar"><img src="https://i.postimg.cc/ZYwVFX7q/b926849e26c2d42ed7b942244920ddf1.jpg"></div>
-            <div>
-              <div class="tname">Leandro Alves</div>
-              <div class="tstars">★★★★★</div>
-            </div>
-          </div>
-          <div class="tquote">“Economia surreal, acessos funcionais e suporte excelente! Uso muito o chatgpt e o runway aqui na minha operação e tudo rodou da melhor forma. E também consegui usar o VEO3 pela primeira vez!”</div>
-        </div>
-
-        <div class="tcard reveal">
-          <div class="thead">
-            <div class="tavatar"><img src="https://i.postimg.cc/QNf0kv4H/c2c8ca1f45def25335ebba5b0f530bd1.jpg"></div>
-            <div>
-              <div class="tname">Livia Andrade</div>
-              <div class="tstars">★★★★★</div>
-            </div>
-          </div>
-          <div class="tquote">“Deixei de pagar R$1200 só no VEO3 fora as outras ferramentas. Muita economia e facilita muito ter todas essas ferramentas em um só lugar. Nem streaming eu pago mais, e me atenderam super bem!!”</div>
-        </div>
-
-        <div class="tcard reveal">
-          <div class="thead">
-            <div class="tavatar"><img src="https://i.postimg.cc/tRB2t8Ss/7b02f2814a24f016f5aeb10549388385.jpg"></div>
-            <div>
-              <div class="tname">Anderson Silva</div>
-              <div class="tstars">★★★★★</div>
-            </div>
-          </div>
-          <div class="tquote">“Praticamente de graça! Vale cada centavo e o suporte te atende muito bem no whatsapp, nota 1000!”</div>
-        </div>
+        <a class="btn" style="background:linear-gradient(90deg,#ff67ff,#b86bff);color:#210039;border:0;font-weight:800" href="https://pay.cakto.com.br/v9qe7nk" target="_blank" rel="noopener">Começar Agora</a>
       </div>
     </div>
-  </section>
 
-  <section class="support section">
-    <div class="wrap center">
-      <h2 class="h2 reveal">Ficou alguma <span class="brand-gradient">dúvida?</span></h2>
-      <p class="muted reveal">Nossa equipe está pronta para te ajudar via WhatsApp</p>
-      <div style="margin-top:14px" class="reveal">
-        <a class="whats" href="https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20no%20acesso%20às%20ferramentas%20de%20IA%20e%20Marketing%20Digital." target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+    <p class="center muted" style="margin-top:16px;color:#ffffff;font-weight:800;font-size:16px">
+      Pagamento 100% seguro · Acesso imediato · Cancele quando quiser
+    </p>
+
+    <div class="testimonials">
+      <div class="tcard reveal">
+        <div class="thead">
+          <div class="tavatar"><img src="https://i.postimg.cc/ZYwVFX7q/b926849e26c2d42ed7b942244920ddf1.jpg" alt="Leandro Alves"></div>
+          <div><div class="tname">Leandro Alves</div><div class="tstars">★★★★★</div></div>
+        </div>
+        <div class="tquote">“Economia surreal, acessos funcionais e suporte excelente! Uso muito o chatgpt e o runway aqui na minha operação e tudo rodou da melhor forma. E também consegui usar o VEO3 pela primeira vez!”</div>
       </div>
-      <p class="muted" style="margin-top:10px;font-size:13px">Respondemos em até 5 minutos durante o horário comercial</p>
+
+      <div class="tcard reveal">
+        <div class="thead">
+          <div class="tavatar"><img src="https://i.postimg.cc/QNf0kv4H/c2c8ca1f45def25335ebba5b0f530bd1.jpg" alt="Livia Andrade"></div>
+          <div><div class="tname">Livia Andrade</div><div class="tstars">★★★★★</div></div>
+        </div>
+        <div class="tquote">“Deixei de pagar R$1200 só no VEO3 fora as outras ferramentas. Muita economia e facilita muito ter todas essas ferramentas em um só lugar. Nem streaming eu pago mais, e me atenderam super bem!!”</div>
+      </div>
+
+      <div class="tcard reveal">
+        <div class="thead">
+          <div class="tavatar"><img src="https://i.postimg.cc/tRB2t8Ss/7b02f2814a24f016f5aeb10549388385.jpg" alt="Anderson Silva"></div>
+          <div><div class="tname">Anderson Silva</div><div class="tstars">★★★★★</div></div>
+        </div>
+        <div class="tquote">“Praticamente de graça! Vale cada centavo e o suporte te atende muito bem no whatsapp, nota 1000!”</div>
+      </div>
     </div>
-  </section>
 
-  <footer>
-    <div class="wrap center">
-      <div>© 2025 IA Premium Hub — Todos os direitos reservados.</div>
-      <div>Desenvolvido por <a class="brand-gradient" href="#" target="_blank" rel="noopener">Álex Junio</a></div>
-      <div style="margin-top:6px"><a href="#" class="muted">Política de Privacidade</a></div>
+  </div>
+</section>
+
+<section class="support section">
+  <div class="wrap center">
+    <h2 class="h2 reveal">Ficou alguma <span class="brand-gradient">dúvida?</span></h2>
+    <p class="muted reveal">Nossa equipe está pronta para te ajudar via WhatsApp</p>
+
+    <div style="margin-top:14px" class="reveal">
+      <a class="whats" href="https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20no%20acesso%20às%20ferramentas%20de%20IA%20e%20Marketing%20Digital." target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
     </div>
-  </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152/examples/js/loaders/GLTFLoader.js"></script>
+    <p class="muted" style="margin-top:10px;font-size:13px">
+      Respondemos em até 5 minutos durante o horário comercial
+    </p>
+  </div>
+</section>
 
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        const id=a.getAttribute('href');
-        if(!id || id==="#") return;
-        e.preventDefault();
-        document.querySelector(id)?.scrollIntoView({behavior:"smooth",block:"start"});
-      });
-    });
+<footer>
+  <div class="wrap center">
+    <div>© 2025 IA Premium Hub — Todos os direitos reservados.</div>
+    <div>Desenvolvido por <a class="brand-gradient" href="#" target="_blank" rel="noopener">Álex Junio</a></div>
+    <div style="margin-top:6px"><a href="#" class="muted">Política de Privacidade</a></div>
+  </div>
+</footer>
 
-    const io=new IntersectionObserver((entries)=>{
-      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } })
-    },{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152/examples/js/loaders/GLTFLoader.js"></script>
 
-    const wrap = document.querySelector('.robot-picture');
-    const canvas = document.getElementById('robot3d-canvas');
-    let MODEL_URL = "https://threejs.org/examples/models/gltf/RobotExpressive/RobotExpressive.glb";
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(!id || id==="#") return;
+    e.preventDefault();
+    document.querySelector(id)?.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+});
 
-    const scene = new THREE.Scene();
-    scene.background = null;
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    }
+  })
+},{threshold:.12});
 
-    const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
-    camera.position.set(0, 1.25, 5);
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true, powerPreference:"high-performance" });
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+const LOGO_BASE = '';
+document.querySelectorAll('.logo-badge[data-logo]').forEach(el=>{
+  let file = (el.getAttribute('data-logo')||'').trim();
+  if(!file) return;
 
-    const hemi = new THREE.HemisphereLight(0xcff2ff, 0x0b1016, 0.9);
-    scene.add(hemi);
-    const dir = new THREE.DirectionalLight(0xffffff, 1.15);
-    dir.position.set(3, 5, 4);
-    scene.add(dir);
+  const img = new Image();
+  img.loading = 'lazy';
+  img.alt = el.textContent.trim() || file.replace(/\.[^.]+$/,'');
+  const isAbs = /^https?:\/\//i.test(file);
+  if(!isAbs && LOGO_BASE){ file = LOGO_BASE + file; }
+  if(/^\/\//.test(file)){ file = 'https:' + file; }
 
-    const loader = new THREE.GLTFLoader();
-    let robot, mixer, headBone, torso;
-    loader.load(MODEL_URL, (gltf)=>{
-      robot = gltf.scene;
-      robot.traverse(n=>{
-        if(n.isMesh){
-          n.castShadow = false;
-          n.receiveShadow = false;
-          if(n.material) n.material.needsUpdate = true;
-        }
-      });
-      const box = new THREE.Box3().setFromObject(robot);
-      const size = new THREE.Vector3(); box.getSize(size);
-      const center = new THREE.Vector3(); box.getCenter(center);
-      const scale = 1.7 / Math.max(size.y, size.x);
-      robot.scale.setScalar(scale);
-      robot.position.set(-center.x*scale, -center.y*scale - 0.5, -center.z*scale);
+  img.crossOrigin = 'anonymous';
+  img.src = file;
+  img.onerror = ()=>{
+    if(el && !el.textContent){ el.textContent = img.alt; }
+  };
+  el.textContent = '';
+  el.style.padding = '0';
+  el.appendChild(img);
+});
 
-      robot.traverse(n=>{
-        const name = (n.name||"").toLowerCase();
-        if(!headBone && (name.includes("head") || name.includes("cabeca") || name.includes("neck") || name==="head")){
-          headBone = n;
-        }
-        if(!torso && (name.includes("spine") || name.includes("chest") || name.includes("torso"))){
-          torso = n;
-        }
-      });
-      if(!torso) torso = robot;
+const wrap = document.querySelector('.robot-picture');
+const canvas = document.getElementById('robot3d-canvas');
+let MODEL_URL = "https://threejs.org/examples/models/gltf/RobotExpressive/RobotExpressive.glb";
 
-      scene.add(robot);
+const scene = new THREE.Scene();
+scene.background = null;
 
-      if(gltf.animations && gltf.animations.length){
-        mixer = new THREE.AnimationMixer(robot);
-        gltf.animations.forEach(clip=>{
-          if(clip && clip.duration>0) {
-            const act = mixer.clipAction(clip);
-            act.play();
-          }
-        });
+const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
+camera.position.set(0, 1.25, 5);
+
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  antialias:true,
+  alpha:true,
+  powerPreference:"high-performance"
+});
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+const hemi = new THREE.HemisphereLight(0xcff2ff, 0x0b1016, 0.9);
+scene.add(hemi);
+
+const dir = new THREE.DirectionalLight(0xffffff, 1.15);
+dir.position.set(3, 5, 4);
+scene.add(dir);
+
+const loader = new THREE.GLTFLoader();
+let robot, mixer, headBone, torso;
+
+loader.load(MODEL_URL, (gltf)=>{
+  robot = gltf.scene;
+  robot.traverse(n=>{
+    if(n.isMesh){
+      n.castShadow = false;
+      n.receiveShadow = false;
+      if(n.material) n.material.needsUpdate = true;
+    }
+  });
+
+  const box = new THREE.Box3().setFromObject(robot);
+  const size = new THREE.Vector3();
+  box.getSize(size);
+  const center = new THREE.Vector3();
+  box.getCenter(center);
+
+  const scale = 1.7 / Math.max(size.y, size.x);
+  robot.scale.setScalar(scale);
+  robot.position.set(-center.x*scale, -center.y*scale - 0.5, -center.z*scale);
+
+  robot.traverse(n=>{
+    const name = (n.name||"").toLowerCase();
+    if(!headBone && (name.includes("head") || name.includes("cabeca") || name.includes("neck") || name==="head")){
+      headBone = n;
+    }
+    if(!torso && (name.includes("spine") || name.includes("chest") || name.includes("torso"))){
+      torso = n;
+    }
+  });
+
+  if(!torso) torso = robot;
+  scene.add(robot);
+
+  if(gltf.animations && gltf.animations.length){
+    mixer = new THREE.AnimationMixer(robot);
+    gltf.animations.forEach(clip=>{
+      if(clip && clip.duration>0) {
+        const act = mixer.clipAction(clip);
+        act.play();
       }
     });
+  }
+});
 
-    function resize(){
-      const w = wrap.clientWidth;
-      const h = wrap.clientHeight;
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-    }
-    window.addEventListener('resize', resize, {passive:true});
-    resize();
+function resize(){
+  const w = wrap.clientWidth;
+  const h = wrap.clientHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize, {passive:true});
+resize();
 
-    let targetDX = 0, targetDY = 0;
-    function onMove(clientX, clientY){
-      const rect = canvas.getBoundingClientRect();
-      const cx = rect.left + rect.width/2;
-      const cy = rect.top + rect.height/2;
-      targetDX = (clientX - cx) / (rect.width/2);
-      targetDY = (clientY - cy) / (rect.height/2);
-      targetDX = Math.max(-1, Math.min(1, targetDX));
-      targetDY = Math.max(-1, Math.min(1, targetDY));
-    }
-    window.addEventListener('mousemove', (e)=>onMove(e.clientX, e.clientY), {passive:true});
-    window.addEventListener('touchmove', (e)=>{ const t=e.touches[0]; if(t) onMove(t.clientX, t.clientY); }, {passive:true});
-    window.addEventListener('mouseleave', ()=>{ targetDX = 0; targetDY = 0; });
+let targetDX = 0, targetDY = 0;
+function onMove(clientX, clientY){
+  const rect = canvas.getBoundingClientRect();
+  const cx = rect.left + rect.width/2;
+  const cy = rect.top + rect.height/2;
+  targetDX = (clientX - cx) / (rect.width/2);
+  targetDY = (clientY - cy) / (rect.height/2);
+  targetDX = Math.max(-1, Math.min(1, targetDX));
+  targetDY = Math.max(-1, Math.min(1, targetDY));
+}
 
-    const clock = new THREE.Clock();
-    function animate(){
-      requestAnimationFrame(animate);
-      const dt = clock.getDelta();
-      if(mixer) mixer.update(dt);
-      if(robot){
-        const bodyYaw = THREE.MathUtils.lerp(robot.rotation.y, targetDX * 0.25, 0.12);
-        robot.rotation.y = bodyYaw;
-        if(headBone){
-          headBone.rotation.y = THREE.MathUtils.lerp(headBone.rotation.y, targetDX * 0.6, 0.18);
-          headBone.rotation.x = THREE.MathUtils.lerp(headBone.rotation.x, -targetDY * 0.35, 0.18);
-        } else if(torso){
-          torso.rotation.y = THREE.MathUtils.lerp(torso.rotation.y, targetDX * 0.35, 0.12);
-          torso.rotation.x = THREE.MathUtils.lerp(torso.rotation.x, -targetDY * 0.15, 0.12);
-        }
-      }
-      renderer.render(scene, camera);
+window.addEventListener('mousemove', (e)=>onMove(e.clientX, e.clientY), {passive:true});
+window.addEventListener('touchmove', (e)=>{
+  const t=e.touches[0];
+  if(t) onMove(t.clientX, t.clientY);
+}, {passive:true});
+window.addEventListener('mouseleave', ()=>{
+  targetDX = 0;
+  targetDY = 0;
+});
+
+const clock = new THREE.Clock();
+function animate(){
+  requestAnimationFrame(animate);
+  const dt = clock.getDelta();
+  if(mixer) mixer.update(dt);
+
+  if(robot){
+    const bodyYaw = THREE.MathUtils.lerp(robot.rotation.y, targetDX * 0.25, 0.12);
+    robot.rotation.y = bodyYaw;
+
+    if(headBone){
+      headBone.rotation.y = THREE.MathUtils.lerp(headBone.rotation.y, targetDX * 0.6, 0.18);
+      headBone.rotation.x = THREE.MathUtils.lerp(headBone.rotation.x, -targetDY * 0.35, 0.18);
+    } else if(torso){
+      torso.rotation.y = THREE.MathUtils.lerp(torso.rotation.y, targetDX * 0.35, 0.12);
+      torso.rotation.x = THREE.MathUtils.lerp(torso.rotation.x, -targetDY * 0.15, 0.12);
     }
-    animate();
-  </script>
+  }
+
+  renderer.render(scene, camera);
+}
+animate();
+</script>
 
 </body>
 </html>
