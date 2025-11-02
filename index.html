@@ -82,7 +82,6 @@
       border-color:rgba(0,195,255,.55);
       box-shadow:0 0 0 1px rgba(0,195,255,.35) inset, 0 0 18px rgba(0,195,255,.25), 0 0 28px rgba(0,255,180,.2)
     }
-    .logo-badge img{background:#000}
     @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .hero-float{margin:14px auto 6px;width:clamp(260px,60vw,780px);border-radius:16px;overflow:hidden;
       border:1px solid var(--stroke);background:var(--card);
@@ -107,7 +106,7 @@
     }
     #robot3d-canvas{position:absolute;inset:0;width:100%;height:100%}
 
-    /* ALTERAÇÃO DAS CAIXAS (3 POR LINHA) */
+    /* CORREÇÃO */
     .tools{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -116,14 +115,55 @@
     }
     @media (max-width:768px){
       .tools{
-        grid-template-columns:repeat(2,1fr);
+        display:flex;
+        gap:12px;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+      }
+      .tool{
+        flex:0 0 210px;
       }
     }
-
+    .players{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    @media (max-width:996px){.players{grid-template-columns:repeat(2,1fr)}}
+    .player{
+      background:var(--card);border:1px solid var(--stroke);border-radius:16px;
+      padding:18px 16px;display:flex;align-items:center;gap:14px;min-height:110px;
+      transition:.25s ease;position:relative
+    }
+    .player:hover{
+      transform:translateY(-2px);
+      border-color:rgba(0,195,255,.55);
+      box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,
+                 0 0 22px rgba(0,195,255,.28),
+                 0 0 36px rgba(0,255,180,.24)
+    }
+    .avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.25)}
+    .avatar-ph{width:100%;height:100%;display:grid;place-items:center;background:rgba(255,255,255,.06);color:var(--muted);font-size:12px}
+    .player .name{font-weight:700}
+    .player .role{color:var(--muted);font-size:14px;margin-top:2px}
+    .tools{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      padding-bottom:6px;
+      scroll-snap-type:none;
+    }
+    @media (max-width:768px){
+      .tools{
+        display:flex;
+        gap:12px;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+      }
+      .tool{
+        flex:0 0 210px;
+      }
+    }
     .tool{
       background:var(--card);border:1px solid var(--stroke);border-radius:12px;
-      padding:12px;min-height:96px;position:relative;
-      transition:.25s ease
+      padding:12px;min-height:96px;scroll-snap-align:start;
+      transition:.25s ease;position:relative
     }
     .tool:hover{
       transform:translateY(-2px);
@@ -141,7 +181,10 @@
     .tools-note{color:#45ffa7;font-weight:800;margin-top:10px;text-align:center}
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     @media (max-width:996px){.steps{grid-template-columns:1fr}}
-    .step{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px 16px;transition:.25s ease}
+    .step{
+      background:var(--card);border:1px solid var(--stroke);border-radius:16px;
+      padding:18px 16px;transition:.25s ease
+    }
     .step:hover{
       transform:translateY(-2px);
       border-color:rgba(0,195,255,.55);
@@ -155,7 +198,10 @@
     }
     .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     @media (max-width:996px){.plans{grid-template-columns:1fr}}
-    .plan{position:relative;background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:22px;box-shadow:var(--glow)}
+    .plan{
+      position:relative;background:var(--card);border:1px solid var(--stroke);border-radius:18px;
+      padding:22px;box-shadow:var(--glow)
+    }
     .plan.pop{outline:2px solid rgba(255,0,255,.35);box-shadow:0 0 36px rgba(255,0,255,.18)}
     .ribbon{
       position:absolute;top:-12px;right:18px;background:linear-gradient(90deg, #ff67ff, #b86bff);
@@ -168,11 +214,6 @@
     ul.list li{display:flex;gap:8px;align-items:flex-start;margin:8px 0;color:var(--muted)}
     ul.list li:before{content:"✓";color:#6dffbf;font-weight:900}
     ul.list.white-strong li{color:#ffffff;font-weight:800}
-    .support{background:radial-gradient(800px 240px at 50% -20%, rgba(0,255,157,.18), transparent 60%);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
-    .whats{
-      display:inline-flex;gap:10px;align-items:center;background:linear-gradient(90deg, var(--success), #b6ffd9);
-      color:#063; padding:14px 18px;border-radius:14px;font-weight:800
-    }
     footer{border-top:1px solid var(--stroke);padding:30px 0;color:var(--muted);font-size:14px}
     .brand-gradient{background:linear-gradient(90deg, #00ffb4, #00c3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
     .reveal{opacity:0;transform:translateY(14px);transition:.6s ease}
@@ -188,11 +229,13 @@
       margin-left:auto;margin-right:auto;
       text-align:center;
     }
-    .promo-ribbon{
-      position:absolute;top:-12px;left:16px;
-      background:linear-gradient(90deg,#42e1ff,#b86bff);
-      color:#061018;font-weight:800;border-radius:999px;padding:6px 12px;font-size:12px
+    .promo-corner{
+      position:absolute;top:-12px;padding:6px 12px;border-radius:999px;font-weight:800;font-size:12px;
+      background:#ffffff;color:#000000;border:1px solid rgba(255,255,255,.25);
+      box-shadow:none;
     }
+    .promo-corner.right{right:16px}
+    .promo-corner.left{left:16px}
     .promo-title{font-weight:800;margin:4px 0 8px;font-size:clamp(18px,2.8vw,22px)}
     .promo-sub{color:#a9ffde;font-weight:800;margin:6px 0 2px}
     .promo-price{display:flex;align-items:flex-end;gap:8px;margin-top:6px}
@@ -206,18 +249,13 @@
     .promo-text-green{color:#45ffa7;font-weight:800}
     .promo-text-green-dark{color:#0a8f5a;font-weight:800}
     .promo-list.white li{color:#ffffff;font-weight:800}
-    .promo-corner{
-      position:absolute;top:-12px;padding:6px 12px;border-radius:999px;font-weight:800;font-size:12px;
-      background:#ffffff;
-      color:#000000;
-      border:1px solid rgba(255,255,255,.25);
-      box-shadow:none;
+
+    @keyframes floatY{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
+      100%{transform:translateY(0)}
     }
-    .promo-corner.right{right:16px}
-    .promo-corner.left{left:16px}
-    @media (min-width: 997px){
-      .promo-callout{ width: calc(50% - 9px); }
-    }
+
     .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
     @media (max-width:996px){.testimonials{grid-template-columns:1fr}}
     .tcard{
@@ -225,7 +263,13 @@
       padding:18px;display:flex;flex-direction:column;gap:10px;min-height:220px;
       transition:.25s ease
     }
-    .tcard:hover{transform:translateY(-2px);border-color:rgba(0,195,255,.55);box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,0 0 22px rgba(0,195,255,.28),0 0 36px rgba(0,255,180,.24)}
+    .tcard:hover{
+      transform:translateY(-2px);
+      border-color:rgba(0,195,255,.55);
+      box-shadow:0 0 0 1px rgba(0,195,255,.35) inset,
+                 0 0 22px rgba(0,195,255,.28),
+                 0 0 36px rgba(0,255,180,.24)
+    }
     .thead{display:flex;align-items:center;gap:12px}
     .tavatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.25);flex-shrink:0}
     .tname{font-weight:800}
@@ -243,47 +287,45 @@
             Chega de gastar caro<br>
             em <span class="headline-ink">ferramentas<br>de IA</span>
           </h1>
+
           <div class="hero-float reveal">
             <img src="https://i.postimg.cc/QdvcTMVQ/IA-generativa-capa-1.jpg" alt="Destaque IA">
           </div>
+
           <p class="lead reveal" style="color:#ffffff;font-weight:800">
             Tenha +70 Ferramentas premium de IA e Marketing Digital em um só acesso, pagando apenas R$47/mês.
           </p>
+
           <div class="hero-actions reveal">
             <a href="#planos" class="btn btn-primary">Acessar Agora</a>
             <a href="#como-funciona" class="btn btn-outline">Como Funciona</a>
           </div>
+
           <div class="hero-note reveal">✅ Acesso imediato após a confirmação do pagamento</div>
 
           <div class="logo-ticker reveal" aria-hidden="true">
             <div class="logo-track">
-              <div class="logo-badge" data-logo="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png">Veo 3</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png">ChatGPT</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png">Sora GPT</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/L637kd38/Design-sem-nome-10.png">Heygen</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/43xTHfDL/Design-sem-nome-9.png">Semrush</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png"></div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png">Freepik</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png">CapCut PRO</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png">Veo 3</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png">ChatGPT</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png">Sora GPT</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/L637kd38/Design-sem-nome-10.png">Heygen</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/43xTHfDL/Design-sem-nome-9.png">Semrush</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png">Canva Pro</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png">Freepik</div>
-              <div class="logo-badge" data-logo="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png">CapCut PRO</div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/L637kd38/Design-sem-nome-10.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/43xTHfDL/Design-sem-nome-9.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png"></div>
+
+              <div class="logo-badge"><img src="https://i.postimg.cc/PqwPcMxs/Design-sem-nome-5.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/K87W567X/Design-sem-nome-8.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/j59KrpFb/Design-sem-nome-12.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/L637kd38/Design-sem-nome-10.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/43xTHfDL/Design-sem-nome-9.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/8C4PxnGJ/Design-sem-nome-11.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/HncF22b8/freepik-logo-png-seeklogo-406311.png"></div>
+              <div class="logo-badge"><img src="https://i.postimg.cc/7hfvsKH1/Design-sem-nome-6.png"></div>
             </div>
           </div>
 
         </div>
-
-        <div class="robot-frame reveal">
-          <div class="robot-picture">
-            <canvas id="robot3d-canvas"></canvas>
-          </div>
-        </div>
-
       </div>
     </div>
   </header>
@@ -295,24 +337,25 @@
 
       <div class="players" style="margin-top:18px">
         <div class="player reveal">
-          <div class="avatar"><img src="https://i.postimg.cc/fyFSPWd8/images-1.jpg" alt="Carlos"></div>
-          <div><div class="name">João Marcus</div><div class="role"></div></div>
+          <div class="avatar"><img src="https://i.postimg.cc/fyFSPWd8/images-1.jpg"></div>
+          <div><div class="name">João Marcus</div></div>
         </div>
         <div class="player reveal">
-          <div class="avatar"><img src="https://i.postimg.cc/gjr64LxQ/images-2.jpg" alt="Ana"></div>
-          <div><div class="name">Ruyter Pouel</div><div class="role"></div></div>
+          <div class="avatar"><img src="https://i.postimg.cc/gjr64LxQ/images-2.jpg"></div>
+          <div><div class="name">Ruyter Pouel</div></div>
         </div>
         <div class="player reveal">
-          <div class="avatar"><img src="https://i.postimg.cc/K874PD0s/1713344518140.png" alt="Pedro"></div>
-          <div><div class="name">Thiago Finch</div><div class="role"></div></div>
+          <div class="avatar"><img src="https://i.postimg.cc/K874PD0s/1713344518140.png"></div>
+          <div><div class="name">Thiago Finch</div></div>
         </div>
         <div class="player reveal">
-          <div class="avatar"><img src="https://i.postimg.cc/mgWt15yK/En-JH360Cy-FIuuh0T1Ov-Ym4Gapo.png" alt="Julia"></div>
-          <div><div class="name">Caio Martins</div><div class="role"></div></div>
+          <div class="avatar"><img src="https://i.postimg.cc/mgWt15yK/En-JH360Cy-FIuuh0T1Ov-Ym4Gapo.png"></div>
+          <div><div class="name">Caio Martins</div></div>
         </div>
       </div>
     </div>
   </section>
+
   <section class="section">
     <div class="wrap">
       <h2 class="h2 center reveal">Transforme suas ideias em <span class="brand-gradient">vídeos, imagens</span> e <span class="brand-gradient">textos</span> prontos em segundos!</h2>
@@ -430,7 +473,7 @@
         <div class="plan pop reveal">
           <div class="ribbon">★ MAIS POPULAR</div>
           <h3>Trimestral</h3>
-          <div class="price"><span class="big" style="color:#b87dff">R$117</span><span class="per" style="color:#b87dff"> </span></div>
+          <div class="price"><span class="big" style="color:#b87dff">R$117</span></div>
           <div class="muted" style="margin-top:-6px;margin-bottom:8px;color:#1bbf7a;font-weight:800">Apenas R$39/mês • Economize R$24</div>
           <ul class="list white-strong">
             <li>ChatGPT, Midjourney, Leonardo AI e mais</li>
@@ -449,7 +492,7 @@
       <div class="testimonials">
         <div class="tcard reveal">
           <div class="thead">
-            <div class="tavatar"><img src="https://i.postimg.cc/ZYwVFX7q/b926849e26c2d42ed7b942244920ddf1.jpg" alt="Leandro Alves"></div>
+            <div class="tavatar"><img src="https://i.postimg.cc/ZYwVFX7q/b926849e26c2d42ed7b942244920ddf1.jpg"></div>
             <div>
               <div class="tname">Leandro Alves</div>
               <div class="tstars">★★★★★</div>
@@ -460,7 +503,7 @@
 
         <div class="tcard reveal">
           <div class="thead">
-            <div class="tavatar"><img src="https://i.postimg.cc/QNf0kv4H/c2c8ca1f45def25335ebba5b0f530bd1.jpg" alt="Livia Andrade"></div>
+            <div class="tavatar"><img src="https://i.postimg.cc/QNf0kv4H/c2c8ca1f45def25335ebba5b0f530bd1.jpg"></div>
             <div>
               <div class="tname">Livia Andrade</div>
               <div class="tstars">★★★★★</div>
@@ -471,7 +514,7 @@
 
         <div class="tcard reveal">
           <div class="thead">
-            <div class="tavatar"><img src="https://i.postimg.cc/tRB2t8Ss/7b02f2814a24f016f5aeb10549388385.jpg" alt="Anderson Silva"></div>
+            <div class="tavatar"><img src="https://i.postimg.cc/tRB2t8Ss/7b02f2814a24f016f5aeb10549388385.jpg"></div>
             <div>
               <div class="tname">Anderson Silva</div>
               <div class="tstars">★★★★★</div>
