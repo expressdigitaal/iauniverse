@@ -1,173 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<!-- UTMIFY PIXEL + EVENTOS (TUDO EM UM) -->
-<script>
-  // =========================
-  // CONFIG
-  // =========================
+  <script>
   window.pixelId = "69985403d5c974fba961bca0";
-
-  // =========================
-  // LOADER UTMIFY
-  // =========================
-  (function () {
-    var p = document.createElement("script");
-    p.async = true;
-    p.defer = true;
-    p.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-    document.head.appendChild(p);
-
-    var u = document.createElement("script");
-    u.async = true;
-    u.defer = true;
-    u.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
-    u.setAttribute("data-utmify-prevent-xcod-sck", "");
-    u.setAttribute("data-utmify-prevent-subids", "");
-    document.head.appendChild(u);
-  })();
-
-  // =========================
-  // TRACK HELPER
-  // =========================
-  window.utmifyEvents = window.utmifyEvents || [];
-
-  function utmifyTrack(eventName, data) {
-    window.utmifyEvents.push({
-      event: eventName,
-      data: data || {},
-      timestamp: Date.now()
-    });
-  }
-
-  // Disponibiliza global (para você chamar Purchase quando quiser)
-  window.utmifyTrack = utmifyTrack;
-
-  // =========================
-  // EVENTOS "INTELIGÊNCIA" (NÃO COBRANÇA)
-  // =========================
-
-  // PageView
-  utmifyTrack("PageView", {
-    page_url: location.href,
-    page_path: location.pathname,
-    page_title: document.title,
-    referrer: document.referrer || ""
-  });
-
-  // Scroll 50%
-  (function () {
-    var fired = false;
-    window.addEventListener("scroll", function () {
-      if (fired) return;
-      var scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-      if (scrolled >= 0.5) {
-        fired = true;
-        utmifyTrack("Scroll50", { page_path: location.pathname });
-      }
-    }, { passive: true });
-  })();
-
-  // Tempo na página 30s
-  setTimeout(function () {
-    utmifyTrack("TimeOnPage30s", { page_path: location.pathname });
-  }, 30000);
-
-  // Click tracking inteligente (Discord/WhatsApp/Comprar/Checkout/Aplicar cupom)
-  document.addEventListener("click", function (e) {
-    var el = e.target && e.target.closest ? e.target.closest("a,button,[role='button']") : null;
-    if (!el) return;
-
-    var text = (el.innerText || el.getAttribute("aria-label") || "").trim().toLowerCase();
-    var href = (el.getAttribute("href") || "").toLowerCase();
-
-    // Discord
-    if (href.includes("discord") || text.includes("discord")) {
-      utmifyTrack("DiscordClick", { page_path: location.pathname });
-      return;
-    }
-
-    // WhatsApp
-    if (href.includes("wa.me") || href.includes("whatsapp") || text.includes("whatsapp")) {
-      utmifyTrack("WhatsAppClick", { page_path: location.pathname });
-      return;
-    }
-
-    // Botões comuns de e-commerce (inteligência)
-    if (text.includes("comprar") || text.includes("adicionar") || text.includes("carrinho")) {
-      // Se você fornecer window.__PRODUCT__ na página, ele manda dados do produto também
-      var pr = window.__PRODUCT__ || null;
-      utmifyTrack("AddToCart", pr ? {
-        product_name: pr.name,
-        product_price: pr.price,
-        product_category: pr.category || "",
-        currency: pr.currency || "BRL"
-      } : { currency: "BRL" });
-      return;
-    }
-
-    if (text.includes("finalizar") || text.includes("checkout") || text.includes("pagamento")) {
-      var cart = window.__CART__ || null;
-      utmifyTrack("InitiateCheckout", cart ? {
-        cart_value: cart.value,
-        currency: cart.currency || "BRL"
-      } : { currency: "BRL" });
-      return;
-    }
-
-    if (text.includes("cupom") || text.includes("aplicar")) {
-      // Se você tiver um input de cupom, ele tenta capturar automaticamente
-      var couponInput = document.querySelector("input[name='coupon'], input[name='cupom'], input[id*='cupom'], input[id*='coupon']");
-      var coupon = couponInput ? (couponInput.value || "").trim() : "";
-      utmifyTrack("CouponUsed", {
-        coupon: coupon || "unknown",
-        page_path: location.pathname
-      });
-      return;
-    }
-  });
-
-  // =========================
-  // VIEWCONTENT (INTELIGÊNCIA) - SE FOR PÁGINA DE PRODUTO
-  // Basta setar window.__PRODUCT__ antes desse script OU em qualquer lugar do HTML
-  // Ex:
-  // <script>window.__PRODUCT__={name:"...",price:18.9,category:"Brainrot",currency:"BRL"};</script>
-  // =========================
-  (function(){
-    if (!window.__PRODUCT__) return;
-    var pr = window.__PRODUCT__;
-    utmifyTrack("ViewContent", {
-      product_name: pr.name,
-      product_price: pr.price,
-      product_category: pr.category || "",
-      currency: pr.currency || "BRL"
-    });
-  })();
-
-  // =========================
-  // PURCHASE (COBRANÇA) - SÓ QUANDO VOCÊ CHAMAR
-  // Chame no "obrigado" / confirmação:
-  // window.utmifyPurchase({order_id:"123",value:18.90,currency:"BRL",payment_method:"PIX"});
-  // =========================
-  window.utmifyPurchase = function (order) {
-    if (!order || typeof order !== "object") return;
-
-    utmifyTrack("Purchase", {
-      order_id: order.order_id || order.id || "",
-      value: Number(order.value || 0),
-      currency: order.currency || "BRL",
-      payment_method: order.payment_method || ""
-    });
-  };
-
-  // AUTO-PURCHASE opcional (se você setar window.__ORDER__ na página de obrigado)
-  // Ex:
-  // <script>window.__ORDER__={order_id:"123",value:18.9,currency:"BRL",payment_method:"PIX"};</script>
-  (function(){
-    if (!window.__ORDER__) return;
-    window.utmifyPurchase(window.__ORDER__);
-  })();
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
 </script>
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
